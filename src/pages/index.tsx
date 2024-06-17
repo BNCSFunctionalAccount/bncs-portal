@@ -1,44 +1,31 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { useLiveQuery } from 'next-sanity/preview'
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import styles from '../styles/landingPage.module.css';
+import Header from '../components/header';
 
-import Card from '~/components/Card'
-import Container from '~/components/Container'
-import Welcome from '~/components/Welcome'
-import { readToken } from '~/lib/sanity.api'
-import { getClient } from '~/lib/sanity.client'
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
-import type { SharedPageProps } from '~/pages/_app'
+export default function LandingPage() {
+  const router = useRouter();
 
-export const getStaticProps: GetStaticProps<
-  SharedPageProps & {
-    posts: Post[]
-  }
-> = async ({ draftMode = false }) => {
-  const client = getClient(draftMode ? { token: readToken } : undefined)
-  const posts = await getPosts(client)
+  const handleClick = (route) => {
+    router.push(route);
+  };
 
-  return {
-    props: {
-      draftMode,
-      token: draftMode ? readToken : '',
-      posts,
-    },
-  }
-}
-
-export default function IndexPage(
-  props: InferGetStaticPropsType<typeof getStaticProps>,
-) {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   return (
-    <Container>
-      <section>
-        {posts.length ? (
-          posts.map((post) => <Card key={post._id} post={post} />)
-        ) : (
-          <Welcome />
-        )}
-      </section>
-    </Container>
-  )
+    <div>
+      <Header />
+      <div className={styles.container}>
+        <h1 className={styles.largeText}>Welcome to the BNCS Support Portal</h1>
+        <p>Our team is here to help. Access our knowledge base, submit a ticket, and get in touch with us.</p>
+        <div className={styles.buttonContainer}>
+          
+
+          {/* Alternatively, you can use router.push() */}
+          <button className={styles.blueButton} >Knowledge Base</button>
+
+          <button className={styles.greyButton} >Pricing</button>
+
+        </div>
+      </div>
+    </div>
+  );
 }
