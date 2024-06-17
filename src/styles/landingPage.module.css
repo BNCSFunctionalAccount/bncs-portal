@@ -1,0 +1,64 @@
+/* index.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+  .largeText {
+    font-size: 70px; 
+    text-align: center;
+  }
+  
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px; 
+  }
+  
+  .greyButton{
+    background-color: #ececed; 
+    color: black; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer;
+    width: 150px;
+  }
+
+  .greyButton:hover{
+    background-color: #cccccf;
+    color: black; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    padding: 10px 20px; 
+    border: none; 
+    width: 150px;
+  }
+
+  .blueButton {
+    background-color: #002d3c; 
+    color: white;
+    border-radius: 5px; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    width: 150px;
+    margin-right: 30px;
+  }
+  
+  .blueButton:hover {
+    background-color: #001b24; 
+    color: white; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    padding: 10px 20px; 
+    border: none; 
+    width: 150px;
+  }
