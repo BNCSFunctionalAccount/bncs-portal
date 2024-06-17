@@ -10,7 +10,14 @@ function Header() {
       <h3 className={styles.headerTitle}>BNCS Support Portal</h3>
       <div className={styles.headerPadd}>
         <nav className={styles.headerNav}>
-          <a>Knowledge Base</a>
+          
+          {!isLoading && (
+            user ? (
+                <a>Knowledge Base</a>
+            ) : (
+                <a>Knowledge Base</a>
+            )
+          )}
           
           
           {!isLoading && (
