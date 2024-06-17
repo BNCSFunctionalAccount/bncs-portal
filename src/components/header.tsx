@@ -14,7 +14,7 @@ function Header() {
           <a>Knowledge Base</a>
           <a>Submit a Ticket</a>
           <a>Contact Us</a>
-          <a>Login</a>
+          <a href="/api/auth/login">Login</a>
         </nav>
       </div>
       
