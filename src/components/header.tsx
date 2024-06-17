@@ -11,8 +11,15 @@ function Header() {
       <div className={styles.headerPadd}>
         <nav className={styles.headerNav}>
           <a>Knowledge Base</a>
-          <a>Submit a Ticket</a>
-          <a>Contact Us</a>
+          
+          
+          {!isLoading && (
+            user ? (
+              <a>Submit a Ticket</a>
+            ) : (
+              <a>Contact Us</a>
+            )
+          )}
           {!isLoading && (
             user ? (
               <a href="/api/auth/logout">Logout</a>
