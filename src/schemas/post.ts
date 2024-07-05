@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'drivers',
+  title: 'Drivers',
   type: 'document',
   fields: [
     defineField({
