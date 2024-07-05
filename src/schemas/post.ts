@@ -21,10 +21,22 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
+      name: 'version',
+      title: 'Version',
+      type: 'string',
+      
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
       type: 'text',
       rows: 4,
+      
+    }),
+    defineField({
+      name: 'size',
+      title: 'Size',
+      type: 'number'
     }),
     defineField({
       name: 'mainImage',
@@ -35,16 +47,27 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
+      name: 'releaseNotes',
+      title: 'Release Notes',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'roles',
+      title: 'Roles',
+      type: 'array',
+      of: [{type: 'string'}]
+    }),
+    defineField({
+      name: 'url',
+      title: 'Download',
+      type: 'url',
     }),
   ],
   preview: {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      
     },
     prepare(selection) {
       const { author } = selection
