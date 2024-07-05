@@ -22,7 +22,11 @@ export default function LandingPage() {
           {/* Alternatively, you can use router.push() */}
           <button className={styles.blueButton} >Knowledge Base</button>
 
-          <button className={styles.greyButton} >Pricing</button>
+          <a 
+            className={styles.greyButton} 
+            href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+            Submit a Ticket
+          </a>
 
         </div>
       </div>
