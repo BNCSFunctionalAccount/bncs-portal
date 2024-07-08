@@ -36,3 +36,7 @@
   .headerPadd {
     margin-right: 50px; /* Push the login link to the right */
   }
+
+  .clickable{
+    cursor: pointer;
+  }
