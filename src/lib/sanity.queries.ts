@@ -2,6 +2,7 @@ import type { PortableTextBlock } from '@portabletext/types'
 import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
+import { Url } from 'next/dist/shared/lib/router/router'
 
 export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
 
@@ -30,7 +31,12 @@ export interface Post {
   _createdAt: string
   title?: string
   slug: Slug
-  excerpt?: string
+  version: string
+  description: string
+  size: number
   mainImage?: ImageAsset
-  body: PortableTextBlock[]
+  releaseNotes: PortableTextBlock[]
+  roles: Array<string>
+  url: Url 
+
 }
