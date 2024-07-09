@@ -1,9 +1,17 @@
 import React from 'react';
 import styles from '../styles/header.module.css';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { useRouter } from 'next/router';
 
 function Header() {
   const { user, isLoading } = useUser();
+
+  const router = useRouter();
+
+  const handleClick = (route) => {
+    router.push(route);
+  };
+
 
   return (
     <header className={styles.header}>
@@ -13,18 +21,21 @@ function Header() {
           
           {!isLoading && (
             user ? (
-                <a>Knowledge Base</a>
+              <a className={styles.clickable}  onClick={() => handleClick('/dashboard')}>Dashboard</a>
             ) : (
-                <a>Knowledge Base</a>
+              <a className={styles.clickable} onClick={() => handleClick('/knowledge-base')}>Knowledge Base</a>
             )
           )}
           
           
           {!isLoading && (
             user ? (
-              <a>Submit a Ticket</a>
+              <a
+              href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+                Submit a Ticket</a>
             ) : (
-              <a>Contact Us</a>
+              <a className={styles.clickable} onClick={() => handleClick('/contact')}>Contact Us</a>
+
             )
           )}
           {!isLoading && (
