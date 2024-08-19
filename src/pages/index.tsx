@@ -16,16 +16,20 @@ export default function LandingPage() {
         <h1 className={styles.largeText}>Welcome to the BNCS Support Portal</h1>
         <p>Our team is here to help. Access our knowledge base, submit a ticket, and get in touch with us.</p>
         <div className={styles.buttonContainer}>
-          <Link href="/knowledge-base">
-              <button className={styles.blueButton}>Knowledge Base</button>
-          </Link>
-          <a
-            className={styles.greyButton}
-            href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
-            Submit a Ticket
-          </a>
+          
         </div>
       </div>
     </div>
   );
 }
+
+
+//<Link href="/knowledge-base">
+//<button className={styles.blueButton}>Knowledge Base</button>
+//</Link>
+
+//<a
+//className={styles.greyButton}
+//href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+//Submit a Ticket
+//</a>
