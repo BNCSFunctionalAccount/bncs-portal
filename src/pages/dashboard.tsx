@@ -50,15 +50,15 @@ const IndexPage = (
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>Title</th>
-                  <th>Size</th>
+                  <th style={{ width: '450px'}}>Title</th>
+                  <th style={{ width: '150px' }}>Size</th>
                   
                 </tr>
               </thead>
               <tbody>
                 {posts.map((post) => (
                   <tr key={post._id}>
-                    <td>{post.title}</td>
+                    <td >{post.title}</td>
                     <td>{post.size}</td>
                     
                   </tr>

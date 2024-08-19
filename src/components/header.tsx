@@ -19,25 +19,17 @@ function Header() {
       <div className={styles.headerPadd}>
         <nav className={styles.headerNav}>
           
-          {!isLoading && (
-            user ? (
-              <a className={styles.clickable}  onClick={() => handleClick('/dashboard')}>Dashboard</a>
-            ) : (
-              <a className={styles.clickable} onClick={() => handleClick('/knowledge-base')}>Knowledge Base</a>
-            )
-          )}
-          
-          
-          {!isLoading && (
-            user ? (
-              <a
-              href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
-                Submit a Ticket</a>
-            ) : (
-              <a className={styles.clickable} onClick={() => handleClick('/contact')}>Contact Us</a>
+        {!isLoading && user && (
+  <>
+    <a className={styles.clickable} onClick={() => handleClick('/dashboard')}>Dashboard</a>
+    <a href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+      Submit a Ticket
+    </a>
+  </>
+)}
 
-            )
-          )}
+
+
           {!isLoading && (
             user ? (
               <a href="/api/auth/logout">Logout</a>
@@ -52,3 +44,20 @@ function Header() {
 }
 
 export default Header;
+
+
+//{!isLoading && user && (
+//  <>
+//    <a className={styles.clickable} onClick={() => handleClick('/dashboard')}>Dashboard</a>
+//    <a href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+//      Submit a Ticket
+//    </a>
+//  </>
+//)}
+
+//{!isLoading && !user && (
+//  <>
+//    <a className={styles.clickable} onClick={() => handleClick('/knowledge-base')}>Knowledge Base</a>
+//    <a className={styles.clickable} onClick={() => handleClick('/contact')}>Contact Us</a>
+//  </>
+//)}
