@@ -51,28 +51,16 @@ const IndexPage = (
               <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Version</th>
                   <th>Size</th>
-                  <th>Date</th>
-                  <th>Download</th>
-                  <th>More info</th>
+                  
                 </tr>
               </thead>
               <tbody>
                 {posts.map((post) => (
                   <tr key={post._id}>
                     <td>{post.title}</td>
-                    <td>{post.version}</td>
                     <td>{post.size}</td>
-                    <td>{post._createdAt}</td>
-                    <td>
-                      {userCanDownload(userRoles, post.roles) && (
-                        <Link href={post.url}>
-                          <button>Download</button>
-                        </Link>
-                      )}
-                    </td>
-                    <td>More Info</td>
+                    
                   </tr>
                 ))}
               </tbody>
@@ -87,3 +75,22 @@ const IndexPage = (
 }
 
 export default IndexPage;
+
+//headings
+//<th>Version</th>
+//<th>Date</th>
+//<th>Download</th>
+//<th>More info</th>
+
+
+//body
+//<td>{post.version}</td>
+//<td>{post._createdAt}</td>
+//<td>
+//{userCanDownload(userRoles, post.roles) && (
+//  <Link href={post.url}>
+//    <button>Download</button>
+//  </Link>
+//)}
+//</td>
+//<td>More Info</td>
