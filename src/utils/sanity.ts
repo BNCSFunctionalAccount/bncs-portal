@@ -8,11 +8,13 @@ const client = sanityClient({
 
 export async function fetchData() {
   const query = `*[_type == 'drivers'] {
+    _id,
     title,
     version,
     size,
-    releaseNotes,
-    url
+    _createdAt,
+    url,
+    roles
   }`;
   
   const data = await client.fetch(query);

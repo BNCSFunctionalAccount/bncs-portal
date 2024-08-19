@@ -2,6 +2,6 @@
   incoming-hooks = ["Sanity"]
 
 [template.environment]
-  NEXT_PUBLIC_SANITY_PROJECT_ID="Your Sanity Project Id"
-  NEXT_PUBLIC_SANITY_DATASET="Your Sanity Dataset"
+  NEXT_PUBLIC_SANITY_PROJECT_ID="2fi7b2t8"
+  NEXT_PUBLIC_SANITY_DATASET="production"
   
