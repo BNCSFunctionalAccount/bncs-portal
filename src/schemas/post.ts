@@ -68,7 +68,7 @@ export default defineType({
       name: 'releaseDate',
       title: 'Release Date',
       type: 'text',
-      rows: 4
+      rows: 1,
     }),
     defineField({
       name: 'roles',
