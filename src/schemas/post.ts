@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'binaryName',
+      title: 'Binary Name',
+      type: 'string',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -26,12 +31,24 @@ export default defineType({
       title: 'Version',
       type: 'string',
       
+    }),defineField({
+      name: 'lastSupportedBNCSVersion',
+      title: 'Last Supported BNCS Version',
+      type: 'string',
+      
     }),
+
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       rows: 4,
+      
+    }),
+    defineField({
+      name: 'readMe',
+      title: 'Read Me',
+      type: 'boolean',
       
     }),
     defineField({
@@ -48,13 +65,20 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'releaseNotes',
-      title: 'Release Notes',
-      type: 'blockContent',
+      name: 'releaseDate',
+      title: 'Release Date',
+      type: 'text',
+      rows: 1,
     }),
     defineField({
       name: 'roles',
       title: 'Roles',
+      type: 'array',
+      of: [{type: 'string'}]
+    }),
+    defineField({
+      name: 'deviceManufacturer',
+      title: 'Device',
       type: 'array',
       of: [{type: 'string'}]
     }),
