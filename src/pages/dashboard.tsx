@@ -11,7 +11,7 @@ import type { SharedPageProps } from '~/pages/_app';
 import styles from '../styles/dashboard.module.css';
 import Sidebar from '~/components/sidebar';
 import Link from 'next/link';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 // Function to check if user has access to download for a specific driver
 const userCanDownload = (userRoles: string[], driverRoles: string[]): boolean => {
@@ -45,21 +45,18 @@ const IndexPage = (
   var myHeaders = new Headers();
   myHeaders.append("Accept", "application/json");
 
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-
-    fetch("https://dev-iwjz11ucof5e6jti.uk.auth0.com/api/v2/users/${userId}/roles")
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error)); 
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  console.log(userRoles)
+  //Here is where you see will the roles which is stored as an array of strings
+  console.log(user["https://localhost:3000//roles"]);
+
+  //this stores the roles but not sure if using a useEffect is necessary might want to reconsider
+  useEffect(() => {
+    const roles = user["https://localhost:3000//roles"] as string[];
+    setUserRoles(roles);
+  }, [user]); // Only run when `user` changes
 
   return (
     <div className={styles.dashboard}>
