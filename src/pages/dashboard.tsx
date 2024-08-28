@@ -43,8 +43,8 @@ const IndexPage = (
   const [userRoles, setUserRoles] = useState<string[]>([]);
 
   useEffect(() => {
-    if (user && user["https://localhost:3000//roles"]) {
-      const roles = user["https://localhost:3000//roles"] as string[];
+    if (user && user["https://localhost:3000/roles"]) {
+      const roles = user["https://localhost:3000/roles"] as string[];
       setUserRoles(roles);
     }
   }, [user]);
