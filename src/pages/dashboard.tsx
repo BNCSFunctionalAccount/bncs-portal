@@ -41,6 +41,8 @@ const IndexPage = (
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery);
   const { user, isLoading, error } = useUser();
   const [userRoles, setUserRoles] = useState<string[]>([]);
+  const [filter, setFilter] = useState<string>('All'); // Filter state
+  const [searchQuery, setSearchQuery] = useState<string>(''); // Search state
 
   useEffect(() => {
     if (user && user["https://localhost:3000/roles"]) {
@@ -48,6 +50,15 @@ const IndexPage = (
       setUserRoles(roles);
     }
   }, [user]);
+
+  // Filter posts based on license status and search query
+  const filteredPosts = posts.filter(post => {
+    const isLicensed = userCanDownload(userRoles, post.roles);
+    const matchesFilter = filter === 'All' || (filter === 'Licensed' ? isLicensed : !isLicensed);
+    const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchesFilter && matchesSearch;
+  });
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -59,25 +70,52 @@ const IndexPage = (
       </Head>
       <Sidebar />
       <div className={styles.content}>
-        <h2>Dashboard</h2>
+        <h2>Drivers</h2>
+        {/* Filter and Search UI */}
+        <div className={styles.filterContainer}>
+          <label htmlFor="filter">Filter License: </label>
+          <select
+            id="filter"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            style={{ marginRight: '20px' }}
+          >
+            <option value="All">All</option>
+            <option value="Licensed">Licensed</option>
+            <option value="Not Licensed">Not Licensed</option>
+          </select>
+          <label htmlFor="search">Search: </label>
+          <input
+            id="search"
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search descriptions..."
+            style={{ padding: '5px', fontSize: '16px' }}
+          />
+        </div>
         <section>
-          {posts.length ? (
+          {filteredPosts.length ? (
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th style={{ width: '250px'}}>Title</th>
-                  <th style={{ width: '100px'}}>Version</th>
+                  <th style={{ width: '250px' }}>Title</th>
+                  <th style={{ width: '100px' }}>Version</th>
                   <th style={{ width: '550px' }}>Description</th>
                   <th style={{ width: '70px' }}></th>
                 </tr>
               </thead>
               <tbody>
-                {posts.map((post) => (
+                {filteredPosts.map((post) => (
                   <tr key={post._id}>
                     <td>{post.title}</td>
                     <td>{post.version}</td>
                     <td>{post.description}</td>
-                    <td>{userCanDownload(userRoles, post.roles) ? 'Licensed' : 'Not Licensed'}</td>
+                    <td>
+                      {userCanDownload(userRoles, post.roles)
+                        ? 'Licensed'
+                        : 'Not Licensed'}
+                    </td>
                   </tr>
                 ))}
               </tbody>
