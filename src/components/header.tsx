@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <h3 className={styles.headerTitle}>BNCS Support Portal</h3>
+      <h3 className={styles.headerTitle}>BNCS Product Portal</h3>
       <div className={styles.headerPadd}>
         <nav className={styles.headerNav}>
           

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
-      <h3>BNCS Support Portal</h3>
+      <h3>BNCS Product Portal</h3>
       <ul>
         <li>
            <a className={styles.link}  href="/"> 
