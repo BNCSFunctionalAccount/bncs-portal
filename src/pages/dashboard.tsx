@@ -11,7 +11,7 @@ import type { SharedPageProps } from '~/pages/_app';
 import styles from '../styles/dashboard.module.css';
 import Sidebar from '~/components/sidebar';
 import Link from 'next/link';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 // Function to check if user has access to download for a specific driver
 const userCanDownload = (userRoles: string[], driverRoles: string[]): boolean => {
@@ -42,24 +42,15 @@ const IndexPage = (
   const { user, isLoading, error } = useUser();
   const [userRoles, setUserRoles] = useState<string[]>([]);
 
-  var myHeaders = new Headers();
-  myHeaders.append("Accept", "application/json");
-
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-
-    fetch("https://dev-iwjz11ucof5e6jti.uk.auth0.com/api/v2/users/${userId}/roles")
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error)); 
+  useEffect(() => {
+    if (user && user["https://localhost:3000/roles"]) {
+      const roles = user["https://localhost:3000/roles"] as string[];
+      setUserRoles(roles);
+    }
+  }, [user]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-
-  console.log(userRoles)
 
   return (
     <div className={styles.dashboard}>
@@ -83,14 +74,10 @@ const IndexPage = (
               <tbody>
                 {posts.map((post) => (
                   <tr key={post._id}>
-                    <td >{post.title}</td>
-                    <td >{post.version}</td>
+                    <td>{post.title}</td>
+                    <td>{post.version}</td>
                     <td>{post.description}</td>
-                    {userCanDownload(userRoles, post.roles) ? (
-                      <td>Licensed</td>
-                    ) : (
-                      <td>Not Licensed</td>
-                    )}
+                    <td>{userCanDownload(userRoles, post.roles) ? 'Licensed' : 'Not Licensed'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -105,25 +92,3 @@ const IndexPage = (
 };
 
 export default IndexPage;
-
-
-//headings
-//<th>Version</th>
-//<th>Date</th>
-//<th>Download</th>
-//<th>More info</th>
-//<th style={{ width: '150px' }}>Size</th>
-
-
-//body
-//<td>{post.version}</td>
-//<td>{post._createdAt}</td>
-//<td>
-//{userCanDownload(userRoles, post.roles) && (
-//  <Link href={post.url}>
-//    <button>Download</button>
-//  </Link>
-//)}
-//</td>
-//<td>More Info</td>
-//<td>{post.size}</td>
