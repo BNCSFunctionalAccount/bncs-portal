@@ -1,94 +1,99 @@
+/* Sidebar styling */
+.sidebar h2 {
+  margin-bottom: 20px;
+}
 
-  
-  .sidebar h2 {
-    margin-bottom: 20px;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .sidebar li:hover {
-    color: #333;
-    font-weight: bold;
-  }
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-  .dashboard {
-    display: flex;
-    height: 100vh; /* Make the dashboard container take up the full viewport height */
-    
-  }
-  
-  .sidebar {
-    width: 200px;
-    height: 100%; /* Make the sidebar take up the full height of its parent (dashboard) */
-    background-color: #f0f0f0;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-  }
-  
-  .content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .table {
-  
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-left: 280px; /* Adjust this value to be at least as wide as the sidebar */
-    table-layout: auto; 
-    
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 
-  }
+.sidebar li:hover {
+  color: #333;
+  font-weight: bold;
+}
 
-  
-  .table th,
-  .table td {
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .table thead th {
-    background-color: #002d3c;
-    color: #fff;
-    font-weight: bold;
-  }
-  
+.dashboard {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
 
-  .table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .table tbody td {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .table tbody td button {
-    background-color: #002d3c;
-    color: #fff;
-    border: none;
+.sidebar {
+  width: 250px; /* Fixed width for sidebar */
+  position: fixed; /* Sidebar remains fixed */
+  height: 100%; /* Full height of the sidebar */
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-  
-  .table tbody td button:hover {
-    background-color: #005bb5;
-  }
+.content {
+  margin-left: 290px; /* Adjusted to account for the sidebar width */
+  padding: 20px;
+  width: calc(100% - 260px); /* Adjust width to accommodate the sidebar */
+}
 
-  .link{
-    text-decoration: none;
-    color: black;
-    margin-right: 20px;
-  }
+.filterContainer {
+  margin-bottom: 20px; /* Space between filter and the table */
+  display: flex;
+  align-items: center;
+}
 
+.filterContainer select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.table {
+  width: 100%; /* Ensure table takes up the full width of the content area */
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  table-layout: auto; 
+  margin-top: 20px; /* Add some space above the table */
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.table thead th {
+  background-color: #002d3c;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody td button {
+  background-color: #002d3c;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.table tbody td button:hover {
+  background-color: #005bb5;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+}
