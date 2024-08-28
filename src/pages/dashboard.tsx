@@ -50,11 +50,11 @@ const IndexPage = (
   if (error) return <div>Error: {error.message}</div>;
 
   //Here is where you see will the roles which is stored as an array of strings
-  console.log(user["https://localhost:3000//roles"]);
+  console.log(user["https://localhost:3000/roles"]);
 
   //this stores the roles but not sure if using a useEffect is necessary might want to reconsider
   useEffect(() => {
-    const roles = user["https://localhost:3000//roles"] as string[];
+    const roles = user["https://localhost:3000/roles"] as string[];
     setUserRoles(roles);
   }, [user]); // Only run when `user` changes
 
