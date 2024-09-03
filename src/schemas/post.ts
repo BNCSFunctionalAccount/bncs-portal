@@ -25,6 +25,20 @@ export default defineType({
         maxLength: 96,
       },
     }),
+    {
+      title: "Type",
+      description: "",
+      name: "type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Driver", value: "driver" },
+          { title: "Core", value: "core" },
+          { title: "Automatic", value: "automatic" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
 
     defineField({
       name: 'version',
@@ -76,6 +90,20 @@ export default defineType({
       type: 'array',
       of: [{type: 'string'}]
     }),
+    {
+      title: "License Type",
+      description: "",
+      name: "licenseType",
+      type: "string",
+      options: {
+        list: [
+          { title: "Perpetual", value: "perpetual" },
+          { title: "Subscription", value: "subscription" },
+          { title: "Option 3", value: "optionThree" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
     defineField({
       name: 'deviceManufacturer',
       title: 'Device',
