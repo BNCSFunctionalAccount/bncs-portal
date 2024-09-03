@@ -90,6 +90,12 @@ export default defineType({
       type: 'array',
       of: [{type: 'string'}]
     }),
+    defineField({
+      name: 'viewers',
+      title: 'Viewers',
+      type: 'array',
+      of: [{type: 'string'}]
+    }),
     {
       title: "License Type",
       description: "",
