@@ -66,11 +66,12 @@ const IndexPage = (
   return (
     <div className={styles.dashboard}>
       <Head>
-        <title>Dashboard</title>
+        <title>Automatics</title>
       </Head>
       <Sidebar />
       <div className={styles.content}>
-        <h2>Dashboard</h2>
+        <h2>Automatics</h2>
+        {/* Filter and Search UI */}
         <div className={styles.filterContainer}>
           <label htmlFor="filter">Filter License: </label>
           <select
@@ -104,20 +105,7 @@ const IndexPage = (
                   <th style={{ width: '70px' }}></th>
                 </tr>
               </thead>
-              <tbody>
-                {filteredPosts.map((post) => (
-                  <tr key={post._id}>
-                    <td>{post.title}</td>
-                    <td>{post.version}</td>
-                    <td>{post.description}</td>
-                    <td>
-                      {userCanDownload(userRoles, post.roles)
-                        ? 'Licensed'
-                        : 'Not Licensed'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+              
             </table>
           ) : (
             <p>No posts found</p>

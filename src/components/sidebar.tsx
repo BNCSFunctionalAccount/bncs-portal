@@ -12,9 +12,26 @@ const Sidebar = () => {
             Home
             </a>
         </li>
-        {/* <li>Core</li>
-        <li>Drivers</li>
-        <li>Automatics</li> */}
+        <li>
+            <a className={styles.link}  href="/dashboard"> 
+            Dashboard
+            </a>
+        </li>
+        <li>
+            <a className={styles.link}  href="/cores"> 
+            Cores
+            </a>
+        </li>
+        <li>
+            <a className={styles.link}  href="/drivers"> 
+            Drivers
+            </a>
+        </li>
+        <li>
+            <a className={styles.link}  href="/automatics"> 
+            Automatics
+            </a>
+        </li>
         <li>
            <a className={styles.link} href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
             Submit a Ticket
