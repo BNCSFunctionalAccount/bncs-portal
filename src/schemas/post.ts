@@ -102,7 +102,6 @@ export default defineType({
           { title: "Option 3", value: "optionThree" },
         ],
       },
-      validation: (Rule) => Rule.required(),
     },
     defineField({
       name: 'deviceManufacturer',
