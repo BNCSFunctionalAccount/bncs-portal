@@ -39,6 +39,7 @@ export interface Post {
   readMe: boolean
   size: number
   mainImage?: ImageAsset
+  releaseNotes: PortableTextBlock[]
   releaseDate: PortableTextBlock[]
   organisationWithLicense: Array<object>
   roles: Array<string>
