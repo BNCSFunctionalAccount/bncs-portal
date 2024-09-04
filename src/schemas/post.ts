@@ -74,6 +74,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'releaseNotes',
+      title: 'Release Notes',
+      type: 'text'
+    }),
+    defineField({
       name: 'releaseDate',
       title: 'Release Date',
       type: 'text'
