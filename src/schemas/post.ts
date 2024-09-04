@@ -25,31 +25,40 @@ export default defineType({
         maxLength: 96,
       },
     }),
-
+    {
+      title: "Type",
+      description: "",
+      name: "type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Driver", value: "driver" },
+          { title: "Core", value: "core" },
+          { title: "Automatic", value: "automatic" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
     defineField({
       name: 'version',
       title: 'Version',
       type: 'string',
-      
-    }),defineField({
+    }),
+    defineField({
       name: 'lastSupportedBNCSVersion',
       title: 'Last Supported BNCS Version',
       type: 'string',
-      
     }),
-
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       rows: 4,
-      
     }),
     defineField({
       name: 'readMe',
       title: 'Read Me',
       type: 'boolean',
-      
     }),
     defineField({
       name: 'size',
@@ -65,22 +74,82 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'releaseNotes',
+      title: 'Release Notes',
+      type: 'text'
+    }),
+    defineField({
       name: 'releaseDate',
       title: 'Release Date',
-      type: 'text',
-      rows: 1,
+      type: 'text'
+    }),
+    defineField({
+      name: 'organisationsWithLicenses',
+      title: 'Organisations with Licenses',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'organisation',
+              title: 'Organisation',
+              type: 'string',
+              options: {
+                list: [
+                  { title: "BBC", value: "bbc" },
+                  { title: "ITV", value: "itv" },
+                  { title: "Sky", value: "sky" },
+                  { title: "Bloomberg", value: "bloomberg" }
+                ],
+              },
+            },
+            {
+              name: 'licenseType',
+              title: 'License Type',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Subscription', value: 'subscription' },
+                  { title: 'Perpetual', value: 'perpetual' },
+                  { title: 'Trial', value: 'trial' },
+                ],
+              },
+            }
+          ]
+        }
+      ]
     }),
     defineField({
       name: 'roles',
       title: 'Roles',
       type: 'array',
-      of: [{type: 'string'}]
+      of: [{ type: 'string' }]
+    }),
+    defineField({
+      name: 'viewers',
+      title: 'Viewers',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+      options: {
+        list: [
+          { title: "BBC", value: "bbc" },
+          { title: "ITV", value: "itv" },
+          { title: "Sky", value: "sky" },
+          { title: "Bloomberg", value: "bloomberg" }
+        ],
+        layout: "grid",
+      },
     }),
     defineField({
       name: 'deviceManufacturer',
       title: 'Device',
       type: 'array',
-      of: [{type: 'string'}]
+      of: [{ type: 'string' }]
     }),
     defineField({
       name: 'url',
@@ -92,7 +161,6 @@ export default defineType({
     select: {
       title: 'title',
       author: 'author.name',
-      
     },
     prepare(selection) {
       const { author } = selection

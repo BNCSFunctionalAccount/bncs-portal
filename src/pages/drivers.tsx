@@ -66,11 +66,11 @@ const IndexPage = (
   return (
     <div className={styles.dashboard}>
       <Head>
-        <title>Dashboard</title>
+        <title>Drivers</title>
       </Head>
       <Sidebar />
       <div className={styles.content}>
-        <h2>Dashboard</h2>
+        <h2>Drivers</h2>
         <div className={styles.filterContainer}>
           <label htmlFor="filter">Filter License: </label>
           <select
