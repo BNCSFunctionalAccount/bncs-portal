@@ -8,34 +8,34 @@ const Sidebar = () => {
       <h3>BNCS Product Portal</h3>
       <ul>
         <li>
-           <a className={styles.link}  href="/"> 
+          <Link className={styles.link} href="/">
             Home
-            </a>
+          </Link>
         </li>
         <li>
-            <a className={styles.link}  href="/dashboard"> 
+          <Link className={styles.link} href="/dashboard">
             Dashboard
-            </a>
+          </Link>
         </li>
         <li>
-            <a className={styles.link}  href="/cores"> 
+          <Link className={styles.link} href="/cores">
             Cores
-            </a>
+          </Link>
         </li>
         <li>
-            <a className={styles.link}  href="/drivers"> 
+          <Link className={styles.link} href="/drivers">
             Drivers
-            </a>
+          </Link>
         </li>
         <li>
-           <a className={styles.link} href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+          <Link className={styles.link} href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
             Submit a Ticket
-            </a>
+          </Link>
         </li>
         <li>
-            <a className={styles.link} href="/api/auth/logout">Logout</a>
+          <Link className={styles.link} href="/api/auth/logout">Logout</Link>
         </li>
-       
+
       </ul>
     </div>
   );
