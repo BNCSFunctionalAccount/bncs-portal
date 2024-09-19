@@ -9,7 +9,7 @@ import { getClient } from '~/lib/sanity.client';
 import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries';
 import type { SharedPageProps } from '~/pages/_app';
 import styles from '../styles/dashboard.module.css';
-import Sidebar from '~/components/sidebar';
+import Sidebar from '~/components/Sidebar';
 import Link from 'next/link';
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
@@ -104,7 +104,7 @@ const IndexPage = (
                   <th style={{ width: '70px' }}></th>
                 </tr>
               </thead>
-              
+
             </table>
           ) : (
             <p>No posts found</p>

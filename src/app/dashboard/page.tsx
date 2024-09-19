@@ -1,10 +1,10 @@
 import { getClient } from "~/lib/sanity.client";
 import { getPosts } from "~/lib/sanity.queries";
 import styles from '../../styles/dashboard.module.css'
-import Sidebar from "~/components/sidebar";
-import { Filter } from "~/components/filter";
-import { Search } from "~/components/search";
-import { PostsTable } from "~/components/postsTable";
+import Sidebar from "~/components/Sidebar";
+import { Filter } from "~/components/Filter";
+import { Search } from "~/components/Search";
+import { PostsTable } from "~/components/PostsTable";
 import { DashboardProvider } from "~/lib/DashboardProvider";
 
 async function getStaticPosts() {
