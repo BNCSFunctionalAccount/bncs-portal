@@ -48,16 +48,22 @@ const IndexPage = (
     if (user && user["https://localhost:3000/roles"]) {
       const roles = user["https://localhost:3000/roles"] as string[];
       setUserRoles(roles);
+      
     }
   }, [user]);
 
   // Filter posts based on license status and search query
   const filteredPosts = posts.filter(post => {
     const isLicensed = userCanDownload(userRoles, post.roles);
-    const matchesFilter = filter === 'All' || (filter === 'Licensed' ? isLicensed : !isLicensed);
+    const isCommerciallyAvailable = post.commerciallyAvailable === true;
+    
+    // Show post if the user can download it OR if it's commercially available
+    const shouldDisplay = isLicensed || isCommerciallyAvailable;
+    
+    // Filter for search query and only show drivers that match the conditions above
     const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
-
-    return matchesFilter && matchesSearch;
+  
+    return shouldDisplay && matchesSearch;
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -110,6 +116,7 @@ const IndexPage = (
                     <td>{post.title}</td>
                     <td>{post.version}</td>
                     <td>{post.description}</td>
+                    
                     <td>
                       {userCanDownload(userRoles, post.roles)
                         ? 'Licensed'
