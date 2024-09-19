@@ -117,7 +117,7 @@ const IndexPage = (
                     <td>{post.version}</td>
                     <td>{post.description}</td>
                     
-                    <td>
+                    <td className={styles.statusColumn}>
                       {userCanDownload(userRoles, post.roles)
                         ? 'Licensed'
                         : 'Not Licensed'}

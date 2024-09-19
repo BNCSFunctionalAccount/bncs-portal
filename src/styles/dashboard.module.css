@@ -97,3 +97,10 @@
   color: black;
   margin-right: 20px;
 }
+
+
+.statusColumn {
+  width: 120px; /* Adjust this width as needed */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  text-align: center;  /* Optional: Center the text */
+}
