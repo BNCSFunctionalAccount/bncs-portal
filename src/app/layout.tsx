@@ -27,15 +27,13 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${sans.className}`}>
 				<UserProvider>
-					<DashboardProvider>
-						{draftMode ? (
-							<PreviewProvider token={token}>
-								{children}
-							</PreviewProvider>
-						) : (
-							children
-						)}
-					</DashboardProvider>
+					{draftMode ? (
+						<PreviewProvider token={token}>
+							{children}
+						</PreviewProvider>
+					) : (
+						children
+					)}
 				</UserProvider>
 			</body>
 		</html >
