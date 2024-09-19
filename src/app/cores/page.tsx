@@ -2,10 +2,10 @@ import { getClient } from "~/lib/sanity.client"
 import { getPosts } from "~/lib/sanity.queries"
 import styles from '../../styles/dashboard.module.css'
 import Sidebar from "~/components/Sidebar"
-import { Filter } from "~/components/Filter"
-import { Search } from "~/components/Search"
 import { CoresTable } from "~/components/CoresTable"
 import { CoresProvider } from "~/lib/CoresProvider"
+import { CoresFilter } from "~/components/CoresFilter"
+import { CoresSearch } from "~/components/CoresSearch"
 
 async function getStaticPosts() {
 	const client = getClient()
@@ -24,8 +24,8 @@ export default async function Cores() {
 				<h2>Cores</h2>
 				<CoresProvider>
 					<div className={styles.filterContainer}>
-						<Filter />
-						<Search />
+						<CoresFilter />
+						<CoresSearch />
 					</div>
 					<CoresTable staticPosts={staticPosts} />
 				</CoresProvider>

@@ -2,8 +2,8 @@ import { getClient } from "~/lib/sanity.client";
 import { getPosts } from "~/lib/sanity.queries";
 import styles from '../../styles/dashboard.module.css'
 import Sidebar from "~/components/Sidebar";
-import { Filter } from "~/components/Filter";
-import { Search } from "~/components/Search";
+import { DashboardFilter } from "~/components/DashboardFilter";
+import { DashboardSearch } from "~/components/DashboardSearch";
 import { PostsTable } from "~/components/PostsTable";
 import { DashboardProvider } from "~/lib/DashboardProvider";
 
@@ -24,8 +24,8 @@ export default async function Dashboard() {
 				<h2>Dashboard</h2>
 				<DashboardProvider>
 					<div className={styles.filterContainer}>
-						<Filter />
-						<Search />
+						<DashboardFilter />
+						<DashboardSearch />
 					</div>
 					<PostsTable staticPosts={staticPosts} />
 				</DashboardProvider>
