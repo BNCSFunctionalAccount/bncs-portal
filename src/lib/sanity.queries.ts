@@ -43,6 +43,7 @@ export interface Post {
   releaseDate: PortableTextBlock[]
   organisationWithLicense: Array<object>
   roles: Array<string>
+  commerciallyAvailable: boolean
   viewers: Array<string>
   deviceManufacturer: Array<string>
   url: Url 
