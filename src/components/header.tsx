@@ -10,7 +10,7 @@ function Header() {
 
   const router = useRouter();
 
-  const handleClick = (route) => {
+  const handleClick = (route: string) => {
     router.push(route);
   };
 
