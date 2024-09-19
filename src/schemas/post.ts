@@ -127,6 +127,11 @@ export default defineType({
       of: [{ type: 'string' }]
     }),
     defineField({
+      name: 'commerciallyAvailable',
+      title: 'Commercially Available',
+      type: 'boolean'
+    }),
+    defineField({
       name: 'viewers',
       title: 'Viewers',
       type: 'array',
