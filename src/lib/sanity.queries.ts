@@ -30,14 +30,14 @@ export interface Post {
   _id: string
   _createdAt: string
   title?: string
-  binaryName: string
+  binaryName?: string
   slug: Slug
-  type: string
-  version: string
-  lastSupportedBNCS: string
-  description: string
-  readMe: boolean
-  size: number
+  type?: string
+  version?: string
+  lastSupportedBNCS?: string
+  description?: string
+  readMe?: boolean
+  size?: number
   mainImage?: ImageAsset
   releaseNotes: PortableTextBlock[]
   releaseDate: PortableTextBlock[]
