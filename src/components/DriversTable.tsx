@@ -3,7 +3,7 @@
 import { FC, useContext, useEffect } from "react";
 import { Post, postsQuery } from "~/lib/sanity.queries";
 import styles from '../styles/dashboard.module.css'
-import { DriversContext } from "~/lib/DriversProvider";
+import { DriversContext } from "~/lib/providers/DriversProvider";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useLiveQuery } from "next-sanity/preview";
 

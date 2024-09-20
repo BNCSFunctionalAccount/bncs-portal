@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react";
-import { DashboardContext } from "~/lib/DashboardProvider";
+import { DashboardContext } from "~/lib/providers/DashboardProvider";
 
 export const DashboardSearch = () => {
 	const { searchQuery, setSearchQuery } = useContext(DashboardContext)

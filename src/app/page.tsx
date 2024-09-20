@@ -1,8 +1,5 @@
-"use client"
-
 import Header from '~/components/Header';
 import styles from '../styles/landingPage.module.css';
-import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function LandingPage() {
 	return (

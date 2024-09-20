@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react";
-import { CoresContext } from "~/lib/CoresProvider";
+import { CoresContext } from "~/lib/providers/CoresProvider";
 
 export const CoresSearch = () => {
 	const { searchQuery, setSearchQuery } = useContext(CoresContext)

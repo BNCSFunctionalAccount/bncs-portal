@@ -2,7 +2,7 @@
 
 import { FC, useContext, useEffect } from 'react';
 import styles from '../styles/dashboard.module.css'
-import { DashboardContext } from '~/lib/DashboardProvider';
+import { DashboardContext } from '~/lib/providers/DashboardProvider';
 import { Post, postsQuery } from '~/lib/sanity.queries';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useLiveQuery } from 'next-sanity/preview';

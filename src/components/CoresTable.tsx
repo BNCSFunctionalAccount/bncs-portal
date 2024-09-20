@@ -4,7 +4,7 @@ import { useLiveQuery } from "next-sanity/preview"
 import { FC, useContext, useEffect } from "react"
 import { Post, postsQuery } from "~/lib/sanity.queries"
 import styles from '../styles/dashboard.module.css'
-import { CoresContext } from "~/lib/CoresProvider";
+import { CoresContext } from "~/lib/providers/CoresProvider";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 const userCanDownload = (userRoles: string[], driverRoles: string[]): boolean => {

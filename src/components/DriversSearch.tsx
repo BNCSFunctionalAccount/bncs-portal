@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext } from "react";;
-import { DriversContext } from "~/lib/DriversProvider";
+import { DriversContext } from "~/lib/providers/DriversProvider";
 
 export const DriversSearch = () => {
 	const { searchQuery, setSearchQuery } = useContext(DriversContext)
