@@ -24,8 +24,8 @@ export default function RootLayout({
 }: LayoutProps) {
 	return (
 		<html lang="en">
-			<body className={`${sans.className}`}>
-				<UserProvider>
+			<UserProvider>
+				<body className={`${sans.className}`}>
 					{draftMode ? (
 						<PreviewProvider token={token}>
 							{children}
@@ -33,8 +33,8 @@ export default function RootLayout({
 					) : (
 						children
 					)}
-				</UserProvider>
-			</body>
+				</body>
+			</UserProvider>
 		</html >
 	)
 }
