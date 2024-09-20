@@ -48,17 +48,31 @@ const IndexPage = (
     if (user && user["https://localhost:3000/roles"]) {
       const roles = user["https://localhost:3000/roles"] as string[];
       setUserRoles(roles);
+      
     }
   }, [user]);
 
-  // Filter posts based on license status and search query
-  const filteredPosts = posts.filter(post => {
-    const isLicensed = userCanDownload(userRoles, post.roles);
-    const matchesFilter = filter === 'All' || (filter === 'Licensed' ? isLicensed : !isLicensed);
-    const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
+  // Filter posts based on license status, search query, and the filter selection
+const filteredPosts = posts.filter(post => {
+  const isLicensed = userCanDownload(userRoles, post.roles);
+  const isCommerciallyAvailable = post.commerciallyAvailable === true;
 
-    return matchesFilter && matchesSearch;
-  });
+  // Show post if the user can download it OR if it's commercially available
+  const shouldDisplay = isLicensed || isCommerciallyAvailable;
+
+  // Filter by the selected license filter
+  const matchesLicenseFilter =
+    filter === 'All' || 
+    (filter === 'Licensed' && isLicensed) || 
+    (filter === 'Not Licensed' && !isLicensed);
+
+  // Filter for search query
+  const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+  // Return true if all conditions are met
+  return shouldDisplay && matchesLicenseFilter && matchesSearch;
+});
+
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -110,7 +124,8 @@ const IndexPage = (
                     <td>{post.title}</td>
                     <td>{post.version}</td>
                     <td>{post.description}</td>
-                    <td>
+                    
+                    <td className={styles.statusColumn}>
                       {userCanDownload(userRoles, post.roles)
                         ? 'Licensed'
                         : 'Not Licensed'}
