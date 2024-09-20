@@ -4,7 +4,7 @@ import { Metadata } from "next"
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { sans } from "~/lib/fonts";
 
-const PreviewProvider = dynamic(() => import('~/components/PreviewProvider'))
+const PreviewProvider = dynamic(() => import('~/lib/providers/PreviewProvider'))
 
 export const metadata: Metadata = {
 	title: 'Home',
