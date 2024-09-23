@@ -29,7 +29,7 @@ export const CoresTable: FC<ICoresTableProps> = ({ staticPosts }) => {
 	const filteredPosts = posts.filter(post => {
 		const isLicensed = userCanDownload(userRoles, post.roles);
 		const matchesFilter = filter === 'All' || (filter === 'Licensed' ? isLicensed : !isLicensed);
-		const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
+		const matchesSearch = post.description?.toLowerCase().includes(searchQuery.toLowerCase());
 
 		return matchesFilter && matchesSearch;
 	});
