@@ -10,7 +10,7 @@ export interface SharedPageProps {
   token: string;
 }
 
-const PreviewProvider = lazy(() => import('~/components/PreviewProvider'));
+const PreviewProvider = lazy(() => import('~/lib/providers/PreviewProvider'));
 
 const mono = IBM_Plex_Mono({
   variable: '--font-family-mono',

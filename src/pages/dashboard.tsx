@@ -9,7 +9,7 @@ import { getClient } from '~/lib/sanity.client';
 import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries';
 import type { SharedPageProps } from '~/pages/_app';
 import styles from '../styles/dashboard.module.css';
-import Sidebar from '~/components/sidebar';
+import Sidebar from '~/components/Sidebar';
 import Link from 'next/link';
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
@@ -48,30 +48,30 @@ const IndexPage = (
     if (user && user["https://localhost:3000/roles"]) {
       const roles = user["https://localhost:3000/roles"] as string[];
       setUserRoles(roles);
-      
+
     }
   }, [user]);
 
   // Filter posts based on license status, search query, and the filter selection
-const filteredPosts = posts.filter(post => {
-  const isLicensed = userCanDownload(userRoles, post.roles);
-  const isCommerciallyAvailable = post.commerciallyAvailable === true;
+  const filteredPosts = posts.filter(post => {
+    const isLicensed = userCanDownload(userRoles, post.roles);
+    const isCommerciallyAvailable = post.commerciallyAvailable === true;
 
-  // Show post if the user can download it OR if it's commercially available
-  const shouldDisplay = isLicensed || isCommerciallyAvailable;
+    // Show post if the user can download it OR if it's commercially available
+    const shouldDisplay = isLicensed || isCommerciallyAvailable;
 
-  // Filter by the selected license filter
-  const matchesLicenseFilter =
-    filter === 'All' || 
-    (filter === 'Licensed' && isLicensed) || 
-    (filter === 'Not Licensed' && !isLicensed);
+    // Filter by the selected license filter
+    const matchesLicenseFilter =
+      filter === 'All' ||
+      (filter === 'Licensed' && isLicensed) ||
+      (filter === 'Not Licensed' && !isLicensed);
 
-  // Filter for search query
-  const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
+    // Filter for search query
+    const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-  // Return true if all conditions are met
-  return shouldDisplay && matchesLicenseFilter && matchesSearch;
-});
+    // Return true if all conditions are met
+    return shouldDisplay && matchesLicenseFilter && matchesSearch;
+  });
 
 
   if (isLoading) return <div>Loading...</div>;
@@ -124,7 +124,7 @@ const filteredPosts = posts.filter(post => {
                     <td>{post.title}</td>
                     <td>{post.version}</td>
                     <td>{post.description}</td>
-                    
+
                     <td className={styles.statusColumn}>
                       {userCanDownload(userRoles, post.roles)
                         ? 'Licensed'

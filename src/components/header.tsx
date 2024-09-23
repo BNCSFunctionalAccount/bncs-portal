@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from '../styles/header.module.css';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 function Header() {
   const { user, isLoading } = useUser();
 
   const router = useRouter();
 
-  const handleClick = (route) => {
+  const handleClick = (route: string) => {
     router.push(route);
   };
 
@@ -18,15 +18,15 @@ function Header() {
       <h3 className={styles.headerTitle}>BNCS Product Portal</h3>
       <div className={styles.headerPadd}>
         <nav className={styles.headerNav}>
-          
-        {!isLoading && user && (
-  <>
-    <a className={styles.clickable} onClick={() => handleClick('/dashboard')}>Dashboard</a>
-    <a href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
-      Submit a Ticket
-    </a>
-  </>
-)}
+
+          {!isLoading && user && (
+            <>
+              <a className={styles.clickable} onClick={() => handleClick('/dashboard')}>Dashboard</a>
+              <a href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+                Submit a Ticket
+              </a>
+            </>
+          )}
 
 
 
