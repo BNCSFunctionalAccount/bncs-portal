@@ -18,16 +18,6 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/cores">
-            Cores
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="/drivers">
-            Drivers
-          </Link>
-        </li>
-        <li>
           <Link className={styles.link} href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
             Submit a Ticket
           </Link>

@@ -1,11 +1,7 @@
-import { useLiveQuery } from "next-sanity/preview"
 import Container from "~/components/Container"
+import { SlugSection } from "~/components/SlugSection"
 import { getClient } from "~/lib/sanity.client"
-import { getPost, Post, postBySlugQuery, postSlugsQuery } from "~/lib/sanity.queries"
-import Image from "next/image"
-import { urlForImage } from "~/lib/sanity.image"
-import { formatDate } from "~/utils"
-import { PortableText } from "@portabletext/react"
+import { getPost, Post, postSlugsQuery } from "~/lib/sanity.queries"
 
 export const dynamicParams = true
 
@@ -54,33 +50,9 @@ async function getStaticProps(params) {
 export default async function ProjectSlugRoute({ params }) {
 	const staticPost = await getStaticProps(params)
 
-	const [post] = useLiveQuery(staticPost, postBySlugQuery, {
-		slug: staticPost.slug.current
-	})
-
 	return (
 		<Container>
-			<section className="post">
-				{post.mainImage ? (
-					<Image
-						className="post__cover"
-						src={urlForImage(post.mainImage)?.url() || ''}
-						height={231}
-						width={367}
-						alt=""
-					/>
-				) : (
-					<div className="post__cover--none" />
-				)}
-				<div className="post__container">
-					<h1 className="post__title">{post.title}</h1>
-					<p className="post__description">{post.description}</p>
-					<p className="post__date">{formatDate(post._createdAt)}</p>
-					<div className="post__content">
-						<PortableText value={post.releaseNotes} />
-					</div>
-				</div>
-			</section>
+			<SlugSection staticPost={staticPost} />
 		</Container>
 	)
 }
