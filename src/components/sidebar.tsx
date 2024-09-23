@@ -1,8 +1,7 @@
-import React from 'react'
 import styles from '../styles/dashboard.module.css'
 import Link from 'next/link'
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <h3>BNCS Product Portal</h3>
@@ -34,5 +33,3 @@ const Sidebar = () => {
     </div>
   )
 }
-
-export default Sidebar
