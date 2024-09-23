@@ -34,12 +34,24 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
 
 	const [posts] = useLiveQuery<Post[]>(staticPosts, postsQuery)
 
-	const filteredPosts = posts?.filter(post => {
+	const filteredPosts = posts.filter(post => {
 		const isLicensed = userCanDownload(userRoles, post.roles);
-		const matchesFilter = filter === 'All' || (filter === 'Licensed' ? isLicensed : !isLicensed);
+		const isCommerciallyAvailable = post.commerciallyAvailable === true;
+
+		// Show post if the user can download it OR if it's commercially available
+		const shouldDisplay = isLicensed || isCommerciallyAvailable;
+
+		// Filter by the selected license filter
+		const matchesLicenseFilter =
+			filter === 'All' ||
+			(filter === 'Licensed' && isLicensed) ||
+			(filter === 'Not Licensed' && !isLicensed);
+
+		// Filter for search query
 		const matchesSearch = post.description?.toLowerCase().includes(searchQuery.toLowerCase());
 
-		return matchesFilter && matchesSearch;
+		// Return true if all conditions are met
+		return shouldDisplay && matchesLicenseFilter && matchesSearch;
 	});
 
 	if (isLoading) return <div>Loading...</div>

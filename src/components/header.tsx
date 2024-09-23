@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import styles from '../styles/header.module.css';
 import { useUser } from '@auth0/nextjs-auth0/client';
