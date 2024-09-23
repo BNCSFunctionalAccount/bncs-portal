@@ -1,5 +1,5 @@
-import { getClient } from "~/lib/sanity.client"
-import { getPosts } from "~/lib/sanity.queries"
+import { getClient } from '~/lib/sanity.client'
+import { getPosts } from '~/lib/sanity.queries'
 
 export function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -10,8 +10,8 @@ export function formatDate(date: string) {
 }
 
 export async function getStaticPosts() {
-	const client = getClient()
-	const posts = await getPosts(client)
+  const client = getClient()
+  const posts = await getPosts(client)
 
-	return posts
+  return posts
 }

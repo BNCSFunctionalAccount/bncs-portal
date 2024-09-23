@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from '../styles/dashboard.module.css';
-import Link from 'next/link';
+import React from 'react'
+import styles from '../styles/dashboard.module.css'
+import Link from 'next/link'
 
 const Sidebar = () => {
   return (
@@ -18,17 +18,21 @@ const Sidebar = () => {
           </Link>
         </li>
         <li>
-          <Link className={styles.link} href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+          <Link
+            className={styles.link}
+            href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1"
+          >
             Submit a Ticket
           </Link>
         </li>
         <li>
-          <Link className={styles.link} href="/api/auth/logout">Logout</Link>
+          <Link className={styles.link} href="/api/auth/logout">
+            Logout
+          </Link>
         </li>
-
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

@@ -5,8 +5,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
         <h3>Dashboard</h3>
       </header>
       <main>{children}</main>
-      <footer className="footer">
-      </footer>
+      <footer className="footer"></footer>
     </div>
   )
 }

@@ -146,8 +146,7 @@ body {
     letter-spacing: -0.025em;
   }
 
-  .post .post__description
-   {
+  .post .post__description {
     font-size: var(--font-size-5);
     line-height: var(--line-height-5);
     margin-top: var(--space-3);
