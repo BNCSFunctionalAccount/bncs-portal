@@ -29,7 +29,7 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
       const roles = user['https://localhost:3000/roles'] as string[]
       setUserRoles(roles)
     }
-  }, [user])
+  }, [user, setUserRoles])
 
   const [posts] = useLiveQuery<Post[]>(staticPosts, postsQuery)
 
