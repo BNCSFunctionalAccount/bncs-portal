@@ -1,4 +1,4 @@
-import { Header } from '../components/header'
+import { Header } from '../components/Header'
 import styles from '../styles/landingPage.module.css'
 
 export default function LandingPage() {
