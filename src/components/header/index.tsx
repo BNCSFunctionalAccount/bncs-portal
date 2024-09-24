@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '../styles/header.module.css'
+import styles from '../../styles/header.module.css'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { useRouter } from 'next/navigation'
 
