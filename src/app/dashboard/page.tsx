@@ -14,7 +14,7 @@ export default async function Dashboard() {
       <div className="ml-72 p-5 w-[calc(100%-260px)]">
         <h2>Dashboard</h2>
         <DashboardProvider>
-          <div className="flex items-center mb-5">
+          <div className="flex gap-4 items-center mb-5">
             <DashboardFilter />
             <DashboardSearch />
           </div>
