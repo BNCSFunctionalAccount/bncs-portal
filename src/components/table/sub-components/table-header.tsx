@@ -7,7 +7,7 @@ interface ITableHeaderProps {
 
 export const TableHeader: FC<ITableHeaderProps> = ({ headers }) => {
   return (
-    <thead className="bg-[#002d3c] text-white font-bold">
+    <thead className="bg-[#002d3c] text-white font-bold text-left">
       <tr>
         {headers.map((header) => (
           <th
