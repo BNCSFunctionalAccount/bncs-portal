@@ -41,7 +41,12 @@ export const Table: FC<ITableProps> = ({
           ) : (
             <p className="p-2">No posts found matching this filter.</p>
           )}
-          {footers && <TableFooter sticky={sticky && sticky !== 'header'} />}
+          {footers && (
+            <TableFooter
+              footers={footers}
+              sticky={sticky && sticky !== 'header'}
+            />
+          )}
         </table>
       </div>
       {showCounter && (
