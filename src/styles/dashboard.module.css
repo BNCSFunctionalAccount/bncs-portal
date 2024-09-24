@@ -54,7 +54,7 @@
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  table-layout: auto; 
+  table-layout: auto;
   margin-top: 20px; /* Add some space above the table */
 }
 
@@ -98,9 +98,8 @@
   margin-right: 20px;
 }
 
-
 .statusColumn {
   width: 120px; /* Adjust this width as needed */
   white-space: nowrap; /* Prevent the text from wrapping */
-  text-align: center;  /* Optional: Center the text */
+  text-align: center; /* Optional: Center the text */
 }

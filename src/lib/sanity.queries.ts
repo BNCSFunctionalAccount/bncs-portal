@@ -46,6 +46,5 @@ export interface Post {
   commerciallyAvailable: boolean
   viewers: Array<string>
   deviceManufacturer: Array<string>
-  url: Url 
-
+  url: Url
 }
