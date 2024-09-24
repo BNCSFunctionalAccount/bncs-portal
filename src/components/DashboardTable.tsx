@@ -8,7 +8,6 @@ import { DRIVER_HEADERS } from '~/app/dashboard/constants'
 import { DashboardContext } from '~/lib/providers/DashboardProvider'
 import { Post, postsQuery } from '~/lib/sanity.queries'
 
-import styles from '../styles/dashboard.module.css'
 import { Table } from './table'
 import { ICell } from './table/types'
 
