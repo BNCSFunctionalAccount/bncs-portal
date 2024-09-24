@@ -1,30 +1,35 @@
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useLiveQuery } from 'next-sanity/preview';
-import Container from '~/components/Container';
-import Welcome from '~/components/Welcome';
-import { readToken } from '~/lib/sanity.api';
-import { getClient } from '~/lib/sanity.client';
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries';
-import type { SharedPageProps } from '~/pages/_app';
-import styles from '../styles/dashboard.module.css';
-import Sidebar from '~/components/sidebar';
-import Link from 'next/link';
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+import { ReactElement, useEffect, useState } from 'react'
+import Head from 'next/head'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { useLiveQuery } from 'next-sanity/preview'
+import Container from '~/components/Container'
+import Welcome from '~/components/Welcome'
+import { readToken } from '~/lib/sanity.api'
+import { getClient } from '~/lib/sanity.client'
+import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
+import type { SharedPageProps } from '~/pages/_app'
+import styles from '../styles/dashboard.module.css'
+import Sidebar from '~/components/sidebar'
+import Link from 'next/link'
+import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
+import { Table } from '~/components/table'
+import { ICell, IRow } from '~/components/table/types'
 
 // Function to check if user has access to download for a specific driver
-const userCanDownload = (userRoles: string[], driverRoles: string[]): boolean => {
-  return userRoles.some(role => driverRoles.includes(role));
-};
+const userCanDownload = (
+  userRoles: string[],
+  driverRoles: string[],
+): boolean => {
+  return userRoles.some((role) => driverRoles.includes(role))
+}
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
     posts: Post[]
   }
 > = async ({ draftMode = false }) => {
-  const client = getClient(draftMode ? { token: readToken } : undefined);
-  const posts = await getPosts(client);
+  const client = getClient(draftMode ? { token: readToken } : undefined)
+  const posts = await getPosts(client)
 
   return {
     props: {
@@ -32,50 +37,63 @@ export const getStaticProps: GetStaticProps<
       token: draftMode ? readToken : '',
       posts,
     },
-  };
-};
+  }
+}
 
-const IndexPage = (
-  props: InferGetStaticPropsType<typeof getStaticProps>,
-) => {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery);
-  const { user, isLoading, error } = useUser();
-  const [userRoles, setUserRoles] = useState<string[]>([]);
-  const [filter, setFilter] = useState<string>('All'); // Filter state
-  const [searchQuery, setSearchQuery] = useState<string>(''); // Search state
+const IndexPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
+  const { user, isLoading, error } = useUser()
+  const [userRoles, setUserRoles] = useState<string[]>([])
+  const [filter, setFilter] = useState<string>('All') // Filter state
+  const [searchQuery, setSearchQuery] = useState<string>('') // Search state
 
   useEffect(() => {
-    if (user && user["https://localhost:3000/roles"]) {
-      const roles = user["https://localhost:3000/roles"] as string[];
-      setUserRoles(roles);
-      
+    if (user && user['https://localhost:3000/roles']) {
+      const roles = user['https://localhost:3000/roles'] as string[]
+      setUserRoles(roles)
     }
-  }, [user]);
+  }, [user])
 
   // Filter posts based on license status, search query, and the filter selection
-const filteredPosts = posts.filter(post => {
-  const isLicensed = userCanDownload(userRoles, post.roles);
-  const isCommerciallyAvailable = post.commerciallyAvailable === true;
+  const filteredPosts = posts.filter((post) => {
+    const isLicensed = userCanDownload(userRoles, post.roles)
+    const isCommerciallyAvailable = post.commerciallyAvailable === true
 
-  // Show post if the user can download it OR if it's commercially available
-  const shouldDisplay = isLicensed || isCommerciallyAvailable;
+    // Show post if the user can download it OR if it's commercially available
+    const shouldDisplay = isLicensed || isCommerciallyAvailable
 
-  // Filter by the selected license filter
-  const matchesLicenseFilter =
-    filter === 'All' || 
-    (filter === 'Licensed' && isLicensed) || 
-    (filter === 'Not Licensed' && !isLicensed);
+    // Filter by the selected license filter
+    const matchesLicenseFilter =
+      filter === 'All' ||
+      (filter === 'Licensed' && isLicensed) ||
+      (filter === 'Not Licensed' && !isLicensed)
 
-  // Filter for search query
-  const matchesSearch = post.description.toLowerCase().includes(searchQuery.toLowerCase());
+    // Filter for search query
+    const matchesSearch = post.description
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
 
-  // Return true if all conditions are met
-  return shouldDisplay && matchesLicenseFilter && matchesSearch;
-});
+    // Return true if all conditions are met
+    return shouldDisplay && matchesLicenseFilter && matchesSearch
+  })
 
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error: {error.message}</div>
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  const tableRows: ICell<string>[][] = filteredPosts.map((post) => {
+    // const newRow: IRow<string | ReactElement>[] = {}
+    const row: ICell<string>[] = [
+      { text: post.title },
+      { text: post.version },
+      { text: post.description },
+      {
+        text: userCanDownload(userRoles, post.roles)
+          ? 'Licensed'
+          : 'Not Licensed',
+      },
+    ]
+    return row
+  })
 
   return (
     <div className={styles.dashboard}>
@@ -124,7 +142,7 @@ const filteredPosts = posts.filter(post => {
                     <td>{post.title}</td>
                     <td>{post.version}</td>
                     <td>{post.description}</td>
-                    
+
                     <td className={styles.statusColumn}>
                       {userCanDownload(userRoles, post.roles)
                         ? 'Licensed'
@@ -138,9 +156,20 @@ const filteredPosts = posts.filter(post => {
             <p>No posts found</p>
           )}
         </section>
+        <section>
+          <Table
+            headers={[
+              { title: 'Title', width: '250px' },
+              { title: 'Version', width: '100px' },
+              { title: 'Description', width: '550px' },
+              { title: 'License', width: '70px' },
+            ]}
+            rows={tableRows}
+          />
+        </section>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
