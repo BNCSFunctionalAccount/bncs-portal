@@ -1,5 +1,5 @@
 import styles from '../../styles/dashboard.module.css'
-import { Sidebar } from '../../components/Sidebar'
+import { Sidebar } from '../../components/sidebar'
 import { DashboardFilter } from '../../components/DashboardFilter'
 import { DashboardSearch } from '../../components/DashboardSearch'
 import { DashboardTable } from '../../components/DashboardTable'
