@@ -1,4 +1,3 @@
-import styles from '../../styles/dashboard.module.css'
 import { Sidebar } from '../../components/Sidebar'
 import { DashboardFilter } from '../../components/DashboardFilter'
 import { DashboardSearch } from '../../components/DashboardSearch'
@@ -10,18 +9,18 @@ export default async function Dashboard() {
   const staticPosts = await getStaticPosts()
 
   return (
-    <div className={styles.dashboard}>
+    <div className="flex h-screen">
       <Sidebar />
-      <div className={styles.content}>
+      <div className="ml-72 p-5 w-[calc(100%-260px)]">
         <h2>Dashboard</h2>
         <DashboardProvider>
-          <div className={styles.filterContainer}>
+          <div className="flex items-center mb-5">
             <DashboardFilter />
             <DashboardSearch />
           </div>
           <DashboardTable staticPosts={staticPosts} />
         </DashboardProvider>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
