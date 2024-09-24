@@ -1,47 +1,44 @@
 /* Header.module.css */
 
 .header {
-    background-color: #002d3c;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-  
-    align-items: center;
-    position: fixed; 
-    width: 100%; 
-    top: 0; /* Stick to the top */
-    z-index: 1000; 
-    color: white;
-  }
-  
-  .headerTitle {
-    margin: 0;
+  background-color: #002d3c;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 
-  }
-  
-  .headerNav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
- 
-  }
-  
-  .headerNav a {
-    text-decoration: none;
-    color: black;
-    margin-right: 20px;
-    color: white;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0; /* Stick to the top */
+  z-index: 1000;
+  color: white;
+}
 
-  }
-  
-  .headerNav a:last-child {
-    margin-right: 0;
-  }
-  
-  .headerPadd {
-    margin-right: 50px; /* Push the login link to the right */
-  }
+.headerTitle {
+  margin: 0;
+}
 
-  .clickable{
-    cursor: pointer;
-  }
+.headerNav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.headerNav a {
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+  color: white;
+}
+
+.headerNav a:last-child {
+  margin-right: 0;
+}
+
+.headerPadd {
+  margin-right: 50px; /* Push the login link to the right */
+}
+
+.clickable {
+  cursor: pointer;
+}

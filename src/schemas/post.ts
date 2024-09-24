@@ -26,15 +26,15 @@ export default defineType({
       },
     }),
     {
-      title: "Type",
-      description: "",
-      name: "type",
-      type: "string",
+      title: 'Type',
+      description: '',
+      name: 'type',
+      type: 'string',
       options: {
         list: [
-          { title: "Driver", value: "driver" },
-          { title: "Core", value: "core" },
-          { title: "Automatic", value: "automatic" },
+          { title: 'Driver', value: 'driver' },
+          { title: 'Core', value: 'core' },
+          { title: 'Automatic', value: 'automatic' },
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -63,7 +63,7 @@ export default defineType({
     defineField({
       name: 'size',
       title: 'Size',
-      type: 'number'
+      type: 'number',
     }),
     defineField({
       name: 'mainImage',
@@ -76,12 +76,12 @@ export default defineType({
     defineField({
       name: 'releaseNotes',
       title: 'Release Notes',
-      type: 'text'
+      type: 'text',
     }),
     defineField({
       name: 'releaseDate',
       title: 'Release Date',
-      type: 'text'
+      type: 'text',
     }),
     defineField({
       name: 'organisationsWithLicenses',
@@ -97,10 +97,10 @@ export default defineType({
               type: 'string',
               options: {
                 list: [
-                  { title: "BBC", value: "bbc" },
-                  { title: "ITV", value: "itv" },
-                  { title: "Sky", value: "sky" },
-                  { title: "Bloomberg", value: "bloomberg" }
+                  { title: 'BBC', value: 'bbc' },
+                  { title: 'ITV', value: 'itv' },
+                  { title: 'Sky', value: 'sky' },
+                  { title: 'Bloomberg', value: 'bloomberg' },
                 ],
               },
             },
@@ -115,21 +115,21 @@ export default defineType({
                   { title: 'Trial', value: 'trial' },
                 ],
               },
-            }
-          ]
-        }
-      ]
+            },
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'roles',
       title: 'Roles',
       type: 'array',
-      of: [{ type: 'string' }]
+      of: [{ type: 'string' }],
     }),
     defineField({
       name: 'commerciallyAvailable',
       title: 'Commercially Available',
-      type: 'boolean'
+      type: 'boolean',
     }),
     defineField({
       name: 'viewers',
@@ -142,19 +142,19 @@ export default defineType({
       ],
       options: {
         list: [
-          { title: "BBC", value: "bbc" },
-          { title: "ITV", value: "itv" },
-          { title: "Sky", value: "sky" },
-          { title: "Bloomberg", value: "bloomberg" }
+          { title: 'BBC', value: 'bbc' },
+          { title: 'ITV', value: 'itv' },
+          { title: 'Sky', value: 'sky' },
+          { title: 'Bloomberg', value: 'bloomberg' },
         ],
-        layout: "grid",
+        layout: 'grid',
       },
     }),
     defineField({
       name: 'deviceManufacturer',
       title: 'Device',
       type: 'array',
-      of: [{ type: 'string' }]
+      of: [{ type: 'string' }],
     }),
     defineField({
       name: 'url',
