@@ -1,42 +1,35 @@
 'use client'
 
-import styles from '../styles/header.module.css'
 import { useUser } from '@auth0/nextjs-auth0/client'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export const Header = () => {
   const { user, isLoading } = useUser()
 
-  const router = useRouter()
-
-  const handleClick = (route: string) => {
-    router.push(route)
-  }
-
   return (
-    <header className={styles.header}>
-      <h3 className={styles.headerTitle}>BNCS Product Portal</h3>
-      <div className={styles.headerPadd}>
-        <nav className={styles.headerNav}>
+    <header className="flex bg-[#002d3c] p-5 justify-between items-center fixed w-full top-0 z-50 text-white">
+      <h3 className="m-0">BNCS Product Portal</h3>
+      <div className="mr-12">
+        <nav className="m-0 p-0 flex gap-5">
           {!isLoading && user && (
             <>
-              <a
-                className={styles.clickable}
-                onClick={() => handleClick('/dashboard')}
+              <Link
+                className="cursor-pointer"
+                href="/dashboard"
               >
                 Dashboard
-              </a>
-              <a href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+              </Link>
+              <Link href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
                 Submit a Ticket
-              </a>
+              </Link>
             </>
           )}
 
           {!isLoading &&
             (user ? (
-              <a href="/api/auth/logout">Logout</a>
+              <Link href="/api/auth/logout">Logout</Link>
             ) : (
-              <a href="/api/auth/login">Login</a>
+              <Link href="/api/auth/login">Login</Link>
             ))}
         </nav>
       </div>
