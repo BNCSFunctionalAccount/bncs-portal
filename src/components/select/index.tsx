@@ -11,6 +11,7 @@ interface ISelectProps {
   width?: string
   height?: string
   gapSize?: string
+  border?: boolean
 }
 
 export const Select: FC<ISelectProps> = ({
@@ -21,6 +22,7 @@ export const Select: FC<ISelectProps> = ({
   width = '10em',
   height = '2em',
   gapSize,
+  border = true,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -46,9 +48,14 @@ export const Select: FC<ISelectProps> = ({
         <div>borg</div>
       ) : (
         <div
-          className={`flex after:content-['>'] items-center p-1 justify-center rounded font-medium
-                    hover:cursor-pointer hover:bg-opacity-50 transition-all
-                    after:relative after:inline-block after:-right-3 ${isOpen ? 'after:-rotate-90' : 'after:rotate-90'} after:transition-all`}
+          className={`${border ? 'border-darkGray' : 'border-lightGray'} flex bg-lightGray after:content-['>'] items-center p-1 
+                    justify-center font-medium hover:cursor-pointer hover:bg-opacity-100 
+                    bg-opacity-75 transition-colors after:relative after:inline-block after:-right-3 
+                    ${
+                      isOpen
+                        ? 'rounded-t-lg border-t border-x after:-rotate-90'
+                        : 'rounded-lg border after:rotate-90'
+                    } after:transition-all`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {titleText}
@@ -56,7 +63,7 @@ export const Select: FC<ISelectProps> = ({
       )}
       {isOpen && (
         <ul
-          className={`box-border border-2 left-0 absolute z-[3] ${directionCalc()} ${!burgerIcon && 'rounded-lg first:rounded-t-lg last:rounded-b-lg'}`}
+          className={`box-border w-full border-b border-x ${border ? 'border-darkGray' : 'border-lightGray'} left-0 absolute z-10 ${directionCalc()} ${!burgerIcon && 'first:rounded-t-lg last:rounded-b-lg'}`}
         >
           {menuItems.map((item, i) => (
             <SelectItem key={item.title ?? ''} item={item} />
