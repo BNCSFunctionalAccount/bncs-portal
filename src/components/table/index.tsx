@@ -27,7 +27,7 @@ export const Table: FC<ITableProps> = ({
   return (
     <>
       <div
-        className={`mt-5 shadow-md ${border && 'border border-blue-950 border-solid'}`}
+        className={`mt-5 shadow-md ${border && 'border border-deepBlue border-solid'}`}
       >
         <table
           className={`${className} w-full border-collapse bg-white table-auto`}

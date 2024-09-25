@@ -10,7 +10,7 @@ interface ITableHeaderProps {
 export const TableHeader: FC<ITableHeaderProps> = ({ headers, sticky }) => {
   return (
     <thead
-      className={`bg-[#002d3c] text-white font-bold text-left ${sticky && 'sticky top-0'}`}
+      className={`bg-deepBlue text-white font-bold text-left ${sticky && 'sticky top-0'}`}
     >
       <tr>
         {headers.map((header) => (
