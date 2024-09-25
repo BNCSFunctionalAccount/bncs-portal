@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-// import { Table } from './src'
 
 const config: Config = {
   content: [
@@ -9,7 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // define colors here
+        evidenOrange: "#ff6d43",
+        deepBlue: "#002d4c",
+        lightGray: "#ececed"
       },
     },
   },

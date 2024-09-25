@@ -6,7 +6,7 @@ import { urlForImage } from '~/lib/sanity.image'
 import { formatDate } from '~/utils'
 import { Post, postBySlugQuery } from '~/lib/sanity.queries'
 import { FC } from 'react'
-import { sans, serif } from '~/lib/fonts'
+import { sans, serif } from '~/assets/fonts'
 
 interface ISlugSectionProps {
   staticPost: Post
