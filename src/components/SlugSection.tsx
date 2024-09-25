@@ -7,6 +7,7 @@ import { formatDate } from '~/utils'
 import { Post, postBySlugQuery } from '~/lib/sanity.queries'
 import { FC } from 'react'
 import { sans, serif } from '~/assets/fonts'
+import { PortableText } from '@portabletext/react'
 
 interface ISlugSectionProps {
   staticPost: Post
@@ -40,7 +41,7 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         </p>
         {post.releaseNotes && (
           <div className={`${serif.className} text-xl tracking-tight mt-6`}>
-            <p>Release Notes: {post.releaseNotes}</p>
+            <PortableText value={post.releaseNotes} />
           </div>
         )}
       </div>
