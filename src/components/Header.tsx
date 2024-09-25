@@ -10,13 +10,8 @@ export const Header = () => {
 
   return (
     <header className="flex bg-deepBlue px-5 py-3 justify-between items-center fixed w-full top-0 z-50 text-white">
-      <div className='flex items-center gap-2'>
-        <Image
-          src={logo}
-          alt='Eviden Logo'
-          width={150}
-          height={100}
-        />
+      <div className="flex items-center gap-2">
+        <Image src={logo} alt="Eviden Logo" width={150} height={100} />
         <h2>|</h2>
         <h1 className="m-0">BNCS Product Portal</h1>
       </div>

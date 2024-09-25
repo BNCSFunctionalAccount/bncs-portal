@@ -8,9 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        evidenOrange: "#ff6d43",
-        deepBlue: "#002d4c",
-        lightGray: "#ececed"
+        evidenOrange: '#ff6d43',
+        deepBlue: '#002d4c',
+        lightGray: '#ececed',
       },
     },
   },

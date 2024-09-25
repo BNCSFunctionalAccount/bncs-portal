@@ -31,9 +31,13 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         <div className="w-full h-[200px] object-cover bg-black" />
       )}
       <div className="py-0 px-3">
-        <h1 className={`${sans.className} text-4xl my-5 mx-0 font-extrabold`}>{post.title}</h1>
+        <h1 className={`${sans.className} text-4xl my-5 mx-0 font-extrabold`}>
+          {post.title}
+        </h1>
         <p className={`${serif.className} text-2xl mt-0`}>{post.description}</p>
-        <p className={`${sans.className} font-semibold text-sm mt-5`}>{formatDate(post._createdAt)}</p>
+        <p className={`${sans.className} font-semibold text-sm mt-5`}>
+          {formatDate(post._createdAt)}
+        </p>
         {post.releaseNotes && (
           <div className={`${serif.className} text-xl tracking-tight mt-6`}>
             <p>Release Notes: {post.releaseNotes}</p>

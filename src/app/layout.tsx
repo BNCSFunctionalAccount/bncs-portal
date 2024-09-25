@@ -8,18 +8,14 @@ export const metadata: Metadata = {
   description: 'test',
 }
 
-const RootLayout = ({
-  children,
-}: { children: React.ReactNode }) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <UserProvider>
-        <body className={`${sans.className}`}>
-          {children}
-        </body>
+        <body className={`${sans.className}`}>{children}</body>
       </UserProvider>
     </html>
   )
 }
 
-export default RootLayout;
+export default RootLayout

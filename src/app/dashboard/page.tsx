@@ -15,13 +15,8 @@ export default async function Dashboard() {
       <Sidebar />
       <div className="ml-72 p-5 w-[calc(100%-260px)]">
         <h2>Dashboard</h2>
-        <div className='absolute right-6 top-10'>
-          <Image
-            src={logo}
-            alt='Eviden Logo'
-            width={175}
-            height={100}
-          />
+        <div className="absolute right-6 top-10">
+          <Image src={logo} alt="Eviden Logo" width={175} height={100} />
         </div>
         <DashboardProvider>
           <div className="flex gap-4 items-center mb-5">
@@ -30,7 +25,7 @@ export default async function Dashboard() {
           </div>
           <DashboardTable staticPosts={staticPosts} />
         </DashboardProvider>
-      </div >
-    </div >
+      </div>
+    </div>
   )
 }
