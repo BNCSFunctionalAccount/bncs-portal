@@ -1,42 +1,54 @@
 'use client'
 
-import styles from '../styles/header.module.css'
 import { useUser } from '@auth0/nextjs-auth0/client'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import Image from 'next/image'
+import logo from '../assets/logo.png'
 
 export const Header = () => {
   const { user, isLoading } = useUser()
 
-  const router = useRouter()
-
-  const handleClick = (route: string) => {
-    router.push(route)
-  }
-
   return (
-    <header className={styles.header}>
-      <h3 className={styles.headerTitle}>BNCS Product Portal</h3>
-      <div className={styles.headerPadd}>
-        <nav className={styles.headerNav}>
+    <header className="flex bg-deepBlue px-5 py-3 justify-between items-center fixed w-full top-0 z-50 text-white">
+      <div className="flex items-center gap-2">
+        <Image src={logo} alt="Eviden Logo" width={150} height={100} />
+        <h2>|</h2>
+        <h1 className="m-0">BNCS Product Portal</h1>
+      </div>
+      <div className="mr-12">
+        <nav className="m-0 p-0 flex gap-5">
           {!isLoading && user && (
             <>
-              <a
-                className={styles.clickable}
-                onClick={() => handleClick('/dashboard')}
+              <Link
+                className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
+                href="/dashboard"
               >
                 Dashboard
-              </a>
-              <a href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1">
+              </Link>
+              <Link
+                className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
+                href="https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1"
+              >
                 Submit a Ticket
-              </a>
+              </Link>
             </>
           )}
 
           {!isLoading &&
             (user ? (
-              <a href="/api/auth/logout">Logout</a>
+              <Link
+                href="/api/auth/logout"
+                className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
+              >
+                Logout
+              </Link>
             ) : (
-              <a href="/api/auth/login">Login</a>
+              <Link
+                href="/api/auth/login"
+                className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
+              >
+                Login
+              </Link>
             ))}
         </nav>
       </div>

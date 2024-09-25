@@ -7,7 +7,7 @@ export const DashboardSearch = () => {
   const { searchQuery, setSearchQuery } = useContext(DashboardContext)
 
   return (
-    <div>
+    <div className="flex gap-2 items-center">
       <label htmlFor="search">Search: </label>
       <input
         id="search"
@@ -15,7 +15,7 @@ export const DashboardSearch = () => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Search descriptions..."
-        style={{ padding: '5px', fontSize: '16px' }}
+        className="p-1 text-base border border-black rounded"
       />
     </div>
   )

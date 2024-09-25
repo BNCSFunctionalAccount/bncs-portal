@@ -4,10 +4,10 @@ import { useLiveQuery } from 'next-sanity/preview'
 import Image from 'next/image'
 import { urlForImage } from '~/lib/sanity.image'
 import { formatDate } from '~/utils'
-import { PortableText } from '@portabletext/react'
 import { Post, postBySlugQuery } from '~/lib/sanity.queries'
 import { FC } from 'react'
-import styles from '../styles/landingPage.module.css'
+import { sans, serif } from '~/assets/fonts'
+import { PortableText } from '@portabletext/react'
 
 interface ISlugSectionProps {
   staticPost: Post
@@ -19,25 +19,31 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
   })
 
   return (
-    <section className="post">
+    <section className="w-full mt-1 mx-0 mb-4">
       {post.mainImage ? (
         <Image
-          className="post__cover"
           src={urlForImage(post.mainImage)?.url() || ''}
           height={231}
           width={367}
           alt=""
+          priority
         />
       ) : (
-        <div className="post__cover--none" />
+        <div className="w-full h-[200px] object-cover bg-black" />
       )}
-      <div className="post__container">
-        <h1 className="post__title">{post.title}</h1>
-        <p className="post__description">{post.description}</p>
-        <p className="post__date">{formatDate(post._createdAt)}</p>
-        <div className="post__content">
-          <PortableText value={post.releaseNotes} />
-        </div>
+      <div className="py-0 px-3">
+        <h1 className={`${sans.className} text-4xl my-5 mx-0 font-extrabold`}>
+          {post.title}
+        </h1>
+        <p className={`${serif.className} text-2xl mt-0`}>{post.description}</p>
+        <p className={`${sans.className} font-semibold text-sm mt-5`}>
+          {formatDate(post._createdAt)}
+        </p>
+        {post.releaseNotes && (
+          <div className={`${serif.className} text-xl tracking-tight mt-6`}>
+            <PortableText value={post.releaseNotes} />
+          </div>
+        )}
       </div>
     </section>
   )

@@ -8,7 +8,7 @@ interface IRowProps {
 
 export const TableRow: FC<IRowProps> = ({ row }) => {
   return (
-    <tr className="hover:bg-[#f1f1f1]">
+    <tr className="hover:bg-lightGray ">
       {row.map((cell) => (
         <TableCell key={cell.id} id={cell.id ?? ''} text={cell.text} />
       ))}
