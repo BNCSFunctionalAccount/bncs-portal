@@ -4,8 +4,7 @@ import { UserProvider } from '@auth0/nextjs-auth0/client'
 import { sans } from '~/assets/fonts'
 
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'test',
+  title: 'BNCS Product Portal',
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
