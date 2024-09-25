@@ -2,6 +2,7 @@
 
 import { useContext } from 'react'
 import { DashboardContext } from '~/lib/providers/DashboardProvider'
+import { Select } from './select'
 
 export const DashboardFilter = () => {
   const { filter, setFilter } = useContext(DashboardContext)
@@ -19,6 +20,14 @@ export const DashboardFilter = () => {
         <option value="Licensed">Licensed</option>
         <option value="Not Licensed">Not Licensed</option>
       </select>
+      <Select
+        titleText="Filter License"
+        menuItems={[
+          { title: 'All', clickEffect: () => console.log('title') },
+          { title: 'Licensed', clickEffect: (e) => console.log(e.target) },
+          { title: 'Not Licensed', clickEffect: (e) => console.log(e.target) },
+        ]}
+      />
     </div>
   )
 }
