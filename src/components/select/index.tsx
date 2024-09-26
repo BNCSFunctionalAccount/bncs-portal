@@ -1,75 +1,68 @@
 import { FC, useState } from 'react'
 
-import { DIRECTION, IMenuItem } from './types'
 import { SelectItem } from './select-item'
+import { IMenuItem } from './types'
 
 interface ISelectProps {
   titleText?: string
-  burgerIcon?: boolean
+  id?: string
   menuItems: IMenuItem[]
-  direction?: DIRECTION
   width?: string
   height?: string
   gapSize?: string
   border?: boolean
+  setOption?: (value: string) => void
+  selectedOption?: string
 }
 
 export const Select: FC<ISelectProps> = ({
   titleText,
-  burgerIcon = false,
+  id,
   menuItems = [],
-  direction = DIRECTION.DOWN,
   width = '10em',
   height = '2em',
-  gapSize,
-  border = true,
+  border = false,
+  setOption,
+  selectedOption,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const directionCalc = () => {
-    switch (direction) {
-      case DIRECTION.RIGHT:
-        return `left-[calc(100% + ${gapSize})]`
-      case DIRECTION.LEFT:
-        return `right-[calc(100% + ${gapSize})] left-[unset]`
-      case DIRECTION.UP:
-        return `bottom-[calc(100% + ${gapSize})]; top-[unset]`
-      default:
-        return `top-[calc(100% + ${gapSize})];`
-    }
-  }
-
   return (
-    <div
-      className={`relative ${burgerIcon ? 'text-left' : 'text-center'}`}
-      style={{ width: width, height: height }}
-    >
-      {burgerIcon ? (
-        <div>borg</div>
-      ) : (
+    <>
+      {titleText && <label htmlFor={id}>{titleText}</label>}
+      <div
+        className={`relative text-center`}
+        style={{ width: width, height: height }}
+      >
         <div
-          className={`${border ? 'border-darkGray' : 'border-lightGray'} flex bg-lightGray after:content-['>'] items-center p-1 
-                    justify-center font-medium hover:cursor-pointer hover:bg-opacity-100 
-                    bg-opacity-75 transition-colors after:relative after:inline-block after:-right-3 
+          className={`${border ? 'border-darkGray' : 'border-lightGray'} flex bg-lightGray items-center p-1 
+                    justify-center font-medium hover:bg-opacity-100 
+                    bg-opacity-75 transition-colors after:absolute after:inline-block after:right-3 pr-2
                     ${
                       isOpen
-                        ? 'rounded-t-lg border-t border-x after:-rotate-90'
-                        : 'rounded-lg border after:rotate-90'
-                    } after:transition-all`}
+                        ? 'rounded-t border-t border-x after:-rotate-90'
+                        : 'rounded border after:rotate-90 hover:cursor-pointer'
+                    } after:transition-all after:content-['>']`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {titleText}
+          {isOpen ? titleText : selectedOption}
         </div>
-      )}
-      {isOpen && (
-        <ul
-          className={`box-border w-full border-b border-x ${border ? 'border-darkGray' : 'border-lightGray'} left-0 absolute z-10 ${directionCalc()} ${!burgerIcon && 'first:rounded-t-lg last:rounded-b-lg'}`}
-        >
-          {menuItems.map((item, i) => (
-            <SelectItem key={item.title ?? ''} item={item} />
-          ))}
-        </ul>
-      )}
-    </div>
+        {isOpen && (
+          <ul
+            id={id}
+            className={`box-border w-full border-b border-x ${border ? 'border-darkGray' : 'border-lightGray'} left-0 absolute z-10 last:rounded-b`}
+          >
+            {menuItems.map((item, i) => (
+              <SelectItem
+                key={item.title ?? ''}
+                item={item}
+                setOption={setOption}
+                setIsOpen={() => setIsOpen(false)}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+    </>
   )
 }
