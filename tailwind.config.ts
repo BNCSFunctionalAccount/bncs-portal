@@ -11,6 +11,7 @@ const config: Config = {
         evidenOrange: '#ff6d43',
         deepBlue: '#002d4c',
         lightGray: '#ececed',
+        darkGray: '#222428',
       },
     },
   },
