@@ -55,6 +55,7 @@ export const Select: FC<ISelectProps> = ({
             {menuItems.map((item, i) => (
               <SelectItem
                 key={item.title ?? ''}
+                selected={selectedOption == item.title}
                 item={item}
                 setOption={setOption}
                 setIsOpen={() => setIsOpen(false)}
