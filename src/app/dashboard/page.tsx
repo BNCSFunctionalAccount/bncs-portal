@@ -6,8 +6,9 @@ import { DashboardProvider } from '../../lib/providers/DashboardProvider'
 import { getStaticPosts } from '~/utils'
 import logo from '../../assets/logo.png'
 import Image from 'next/image'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
-export default async function Dashboard() {
+export default withPageAuthRequired(async function Dashboard() {
   const staticPosts = await getStaticPosts()
 
   return (
@@ -28,4 +29,4 @@ export default async function Dashboard() {
       </div>
     </div>
   )
-}
+}, { returnTo: '/dashboard' })
