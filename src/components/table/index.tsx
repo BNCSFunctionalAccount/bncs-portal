@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react'
+import { FC, MouseEvent, ReactElement } from 'react'
 
 import { TableBody } from './sub-components/table-body'
 import { TableFooter } from './sub-components/table-footer'
@@ -13,6 +13,7 @@ interface ITableProps {
   sticky?: 'header' | 'footer' | 'both'
   rows: IRow<string | ReactElement>[]
   showCounter?: boolean
+  onRowClick?: (e: MouseEvent<HTMLTableRowElement>, rowId: string) => unknown
 }
 
 export const Table: FC<ITableProps> = ({
@@ -23,6 +24,7 @@ export const Table: FC<ITableProps> = ({
   sticky,
   rows,
   showCounter,
+  onRowClick,
 }) => {
   return (
     <>
@@ -37,7 +39,7 @@ export const Table: FC<ITableProps> = ({
             sticky={sticky && sticky !== 'footer'}
           />
           {rows.length > 0 ? (
-            <TableBody rows={rows} />
+            <TableBody onRowClick={onRowClick} rows={rows} />
           ) : (
             <p className="p-2">No posts found matching this filter.</p>
           )}
