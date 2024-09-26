@@ -1,15 +1,16 @@
 'use client'
 
 import { useUser } from '@auth0/nextjs-auth0/client'
+import { useRouter } from 'next/navigation'
 import { useLiveQuery } from 'next-sanity/preview'
-import { FC, useContext, useEffect } from 'react'
+import { FC, MouseEvent, useContext, useEffect } from 'react'
 
 import { DRIVER_HEADERS } from '~/app/dashboard/constants'
 import { DashboardContext } from '~/lib/providers/DashboardProvider'
 import { Post, postsQuery } from '~/lib/sanity.queries'
 
 import { Table } from './table'
-import { ICell } from './table/types'
+import { IRow } from './table/types'
 
 const userCanDownload = (
   userRoles: string[],
@@ -27,6 +28,7 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
     useContext(DashboardContext)
 
   const { user, isLoading, error } = useUser()
+  const router = useRouter()
 
   useEffect(() => {
     if (user && user['https://localhost:3000/roles']) {
@@ -59,17 +61,24 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
     return shouldDisplay && matchesLicenseFilter && matchesSearch
   })
 
-  const tableRows: ICell<string>[][] = (filteredPosts ?? []).map((post) => {
-    const row: ICell<string>[] = [
-      { text: post.title ?? '' },
-      { text: post.version ?? '' },
-      { text: post.description ?? '' },
-      {
-        text: userCanDownload(userRoles, post.roles)
-          ? 'Licensed'
-          : 'Not Licensed',
-      },
-    ]
+  const handleOnRowClick = (e: MouseEvent<HTMLTableRowElement>, id: string) => {
+    router.push(`/post/${id}`)
+  }
+
+  const tableRows: IRow<string>[] = (filteredPosts ?? []).map((post) => {
+    const row: IRow<string> = {
+      cells: [
+        { text: post.title ?? '', id: post._id },
+        { text: post.version ?? '' },
+        { text: post.description ?? '' },
+        {
+          text: userCanDownload(userRoles, post.roles)
+            ? 'Licensed'
+            : 'Not Licensed',
+        },
+      ],
+      id: post.slug.current,
+    }
     return row
   })
 
@@ -79,6 +88,7 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
   return (
     <section>
       <Table
+        onRowClick={handleOnRowClick}
         border={true}
         rows={tableRows}
         headers={DRIVER_HEADERS}
