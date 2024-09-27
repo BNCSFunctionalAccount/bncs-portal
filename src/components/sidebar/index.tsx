@@ -1,5 +1,5 @@
-import { NavItem } from "./navItem"
-import { INavItem } from "./types"
+import { NavItem } from './navItem'
+import { INavItem } from './types'
 
 interface ISidebarProps {
   navItems: INavItem[]
