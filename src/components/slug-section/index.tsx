@@ -37,20 +37,21 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
       ) : (
         <div className="w-full h-[200px] object-cover bg-black" />
       )}
-      <div className="py-0 px-3">
-        <div className="my-5 mx-0 border-b-2 border-lightGray p-2 flex justify-between">
-          <h1 className={`${sans.className} text-4xl font-extrabold`}>
-            {post.title}
-          </h1>
-          <Link
-            className="rounded-lg bg-deepBlue min-w-44 text-center hover:bg-opacity-75 text-white
+      <div className="h-8 bg-deepBlue w-full" />
+      <div className="my-5 mx-0 border-b-2 border-lightGray p-2 flex justify-between">
+        <h1 className={`${sans.className} text-4xl font-extrabold`}>
+          {post.title}
+        </h1>
+        <Link
+          className="rounded-lg bg-deepBlue min-w-44 text-center hover:bg-opacity-75 text-white
             py-2 px-4 hover:text-evidenOrange hover:font-bold transition-all ease-in-out duration-150"
-            href={'/dashboard/'}
-            title="Dashboard"
-          >
-            Back to Table
-          </Link>
-        </div>
+          href={'/dashboard/'}
+          title="Dashboard"
+        >
+          Back to Table
+        </Link>
+      </div>
+      <div className="py-0 px-3 border-l-4 border-evidenOrange pl-4 hover:pl-3 hover:border-l-8 transition-all duration-100">
         <div className="bg-lightGray p-2 rounded my-5 hover:bg-opacity-95">
           <p
             className={`${sans.className} font-semibold text-sm text-gray-500`}
