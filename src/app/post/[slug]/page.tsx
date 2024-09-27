@@ -1,7 +1,10 @@
 import Container from '~/components/Container'
-import { SlugSection } from '~/components/SlugSection'
+import { Sidebar } from '~/components/Sidebar'
+import { SlugSection } from '~/components/slug-section'
 import { getClient } from '~/lib/sanity.client'
 import { getPost, Post, postSlugsQuery } from '~/lib/sanity.queries'
+import logo from '../../../assets/logo.png'
+import Image from 'next/image'
 
 export const dynamicParams = true
 
@@ -51,8 +54,16 @@ export default async function ProjectSlugRoute({ params }) {
   const staticPost = await getStaticProps(params)
 
   return (
-    <Container>
-      <SlugSection staticPost={staticPost} />
-    </Container>
+    <div className="flex h-screen">
+      <Sidebar />
+      <div className="absolute right-6 top-10">
+        <Image src={logo} alt="Eviden Logo" width={175} height={100} />
+      </div>
+      <div className="ml-72 p-5 mt-24 w-[calc(100%-260px)]">
+        <SlugSection staticPost={staticPost} />
+      </div>
+      {/* <Container>
+      </Container> */}
+    </div>
   )
 }
