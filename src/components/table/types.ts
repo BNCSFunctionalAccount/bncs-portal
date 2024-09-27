@@ -11,4 +11,7 @@ export interface ICell<T extends string | ReactElement> {
   text: string
 }
 
-export type IRow<T extends string | ReactElement> = ICell<T>[]
+export type IRow<T extends string | ReactElement> = {
+  cells: ICell<T>[]
+  id: string
+}

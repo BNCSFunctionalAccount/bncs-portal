@@ -1,21 +1,22 @@
 'use client'
 
 import { useContext } from 'react'
+
 import { DashboardContext } from '~/lib/providers/DashboardProvider'
+
+import { Input } from './input'
 
 export const DashboardSearch = () => {
   const { searchQuery, setSearchQuery } = useContext(DashboardContext)
 
   return (
     <div className="flex gap-2 items-center">
-      <label htmlFor="search">Search: </label>
-      <input
+      <Input
+        titleText="Search: "
         id="search"
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        border
         placeholder="Search descriptions..."
-        className="p-1 text-base border border-black rounded"
+        onInputChange={(e) => setSearchQuery(e.target.value)}
       />
     </div>
   )
