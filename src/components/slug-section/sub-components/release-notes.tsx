@@ -18,8 +18,10 @@ export const ReleaseNotes: FC<IReleaseNotesProps> = ({
       {/* post.releaseNotes should be of type PortableTextBlock but is currently returning as string instead */}
       {typeof releaseNotes == 'string' ? (
         releaseNotes
-      ) : (
+      ) : releaseNotes ? (
         <PortableText value={releaseNotes} />
+      ) : (
+        '-'
       )}
     </div>
   </div>

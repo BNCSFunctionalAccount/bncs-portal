@@ -70,7 +70,7 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
           )}
         </div>
         <div className="min-h-24 w-full">
-          {post.releaseNotes && <ReleaseNotes post={post} />}
+          <ReleaseNotes post={post} />
         </div>
       </div>
     </section>
