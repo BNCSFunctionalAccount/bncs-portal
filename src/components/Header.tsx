@@ -1,12 +1,10 @@
-'use client'
-
-import { useUser } from '@auth0/nextjs-auth0/client'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '../assets/logo.png'
+import { getSession } from '@auth0/nextjs-auth0'
 
-export const Header = () => {
-  const { user, isLoading } = useUser()
+export const Header = async () => {
+  const session = await getSession()
 
   return (
     <header className="flex bg-deepBlue px-5 py-3 justify-between items-center fixed w-full top-0 z-50 text-white">
@@ -17,7 +15,7 @@ export const Header = () => {
       </div>
       <div className="mr-12">
         <nav className="m-0 p-0 flex gap-5">
-          {!isLoading && user && (
+          {session?.user && (
             <>
               <Link
                 className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
@@ -33,23 +31,21 @@ export const Header = () => {
               </Link>
             </>
           )}
-
-          {!isLoading &&
-            (user ? (
-              <a
-                href="/api/auth/logout"
-                className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
-              >
-                Logout
-              </a>
-            ) : (
-              <Link
-                href="/api/auth/login"
-                className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
-              >
-                Login
-              </Link>
-            ))}
+          {session?.user ? (
+            <a
+              href="/api/auth/logout"
+              className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
+            >
+              Logout
+            </a>
+          ) : (
+            <Link
+              href="/api/auth/login"
+              className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
+            >
+              Login
+            </Link>
+          )}
         </nav>
       </div>
     </header>
