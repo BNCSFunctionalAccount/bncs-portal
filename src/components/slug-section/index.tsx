@@ -35,7 +35,7 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
           priority
         />
       ) : (
-        <div className="w-full h-[200px] object-cover bg-black" />
+        <div className="w-full h-[200px] object-cover bg-gray-300" />
       )}
       <div className="h-8 bg-deepBlue w-full" />
       <div className="my-5 mx-0 border-b-2 border-lightGray p-2 flex justify-between">
