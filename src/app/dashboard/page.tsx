@@ -1,4 +1,4 @@
-import { Sidebar } from '../../components/Sidebar'
+import { Sidebar } from '../../components/sidebar'
 import { DashboardFilter } from '../../components/DashboardFilter'
 import { DashboardSearch } from '../../components/DashboardSearch'
 import { DashboardTable } from '../../components/DashboardTable'
@@ -7,6 +7,7 @@ import { getStaticPosts } from '~/utils'
 import logo from '../../assets/logo.png'
 import Image from 'next/image'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
 
 export default withPageAuthRequired(
   async function Dashboard() {
@@ -14,7 +15,7 @@ export default withPageAuthRequired(
 
     return (
       <div className="flex h-screen">
-        <Sidebar />
+        <Sidebar navItems={SIDEBAR_NAVITEMS} />
         <div className="ml-72 p-5 w-[calc(100%-260px)]">
           <h2>Dashboard</h2>
           <div className="absolute right-6 top-10">

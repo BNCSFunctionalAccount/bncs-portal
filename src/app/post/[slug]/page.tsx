@@ -1,12 +1,13 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import Image from 'next/image'
 
-import { Sidebar } from '~/components/Sidebar'
 import { SlugSection } from '~/components/slug-section'
 import { getClient } from '~/lib/sanity.client'
 import { getPost, Post, postSlugsQuery } from '~/lib/sanity.queries'
 
 import logo from '../../../assets/logo.png'
+import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
+import { Sidebar } from '~/components/sidebar'
 
 export const dynamicParams = true
 
@@ -58,7 +59,7 @@ export default withPageAuthRequired(
 
     return (
       <div className="flex h-screen">
-        <Sidebar />
+        <Sidebar navItems={SIDEBAR_NAVITEMS} />
         <h1 className="font-bold absolute left-80 top-9">Driver</h1>
         <div className="absolute right-6 top-10">
           <Image src={logo} alt="Eviden Logo" width={175} height={100} />
