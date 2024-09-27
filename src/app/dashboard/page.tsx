@@ -6,7 +6,7 @@ import { DashboardProvider } from '../../lib/providers/DashboardProvider'
 import { getStaticPosts } from '~/utils'
 import logo from '../../assets/logo.png'
 import Image from 'next/image'
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import { getSession, withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 export default withPageAuthRequired(async function Dashboard() {
   const staticPosts = await getStaticPosts()
