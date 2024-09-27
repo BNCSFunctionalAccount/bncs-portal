@@ -11,6 +11,7 @@ import { Post, postsQuery } from '~/lib/sanity.queries'
 
 import { Table } from './table'
 import { IRow } from './table/types'
+import { LoadingSkeleton } from './LoadingSkeleton'
 
 const userCanDownload = (
   userRoles: string[],
@@ -82,7 +83,7 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
     return row
   })
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <LoadingSkeleton count={5} height={30} duration={0.5} />
   if (error) return <div>Error: {error.message}</div>
 
   return (
