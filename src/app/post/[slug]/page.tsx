@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import Container from '~/components/Container'
 import { SlugSection } from '~/components/SlugSection'
 import { getClient } from '~/lib/sanity.client'
@@ -47,12 +48,19 @@ async function getStaticProps(params) {
   return post
 }
 
-export default async function ProjectSlugRoute({ params }) {
-  const staticPost = await getStaticProps(params)
+export default withPageAuthRequired(
+  async function ProjectSlugRoute({ params }) {
+    const staticPost = await getStaticProps(params)
 
-  return (
-    <Container>
-      <SlugSection staticPost={staticPost} />
-    </Container>
-  )
-}
+    return (
+      <Container>
+        <SlugSection staticPost={staticPost} />
+      </Container>
+    )
+  },
+  {
+    returnTo({ params }) {
+      return `/post/${params?.slug}`
+    },
+  },
+)
