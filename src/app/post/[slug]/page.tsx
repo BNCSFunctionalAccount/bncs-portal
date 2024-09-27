@@ -48,16 +48,19 @@ async function getStaticProps(params) {
   return post
 }
 
-export default withPageAuthRequired(async function ProjectSlugRoute({ params }) {
-  const staticPost = await getStaticProps(params)
+export default withPageAuthRequired(
+  async function ProjectSlugRoute({ params }) {
+    const staticPost = await getStaticProps(params)
 
-  return (
-    <Container>
-      <SlugSection staticPost={staticPost} />
-    </Container>
-  )
-}, {
-  returnTo({ params }) {
-    return `/post/${params?.slug}`
-  }
-})
+    return (
+      <Container>
+        <SlugSection staticPost={staticPost} />
+      </Container>
+    )
+  },
+  {
+    returnTo({ params }) {
+      return `/post/${params?.slug}`
+    },
+  },
+)
