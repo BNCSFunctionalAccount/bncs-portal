@@ -59,6 +59,7 @@ export default withPageAuthRequired(
     return (
       <div className="flex h-screen">
         <Sidebar />
+        <h1 className="font-bold absolute left-80 top-9">Driver</h1>
         <div className="absolute right-6 top-10">
           <Image src={logo} alt="Eviden Logo" width={175} height={100} />
         </div>
