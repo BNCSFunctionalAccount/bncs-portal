@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import Image from 'next/image'
 
 import { Sidebar } from '~/components/Sidebar'
@@ -51,18 +52,25 @@ async function getStaticProps(params) {
   return post
 }
 
-export default async function ProjectSlugRoute({ params }) {
-  const staticPost = await getStaticProps(params)
+export default withPageAuthRequired(
+  async function ProjectSlugRoute({ params }) {
+    const staticPost = await getStaticProps(params)
 
-  return (
-    <div className="flex h-screen">
-      <Sidebar />
-      <div className="absolute right-6 top-10">
-        <Image src={logo} alt="Eviden Logo" width={175} height={100} />
+    return (
+      <div className="flex h-screen">
+        <Sidebar />
+        <div className="absolute right-6 top-10">
+          <Image src={logo} alt="Eviden Logo" width={175} height={100} />
+        </div>
+        <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
+          <SlugSection staticPost={staticPost} />
+        </div>
       </div>
-      <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
-        <SlugSection staticPost={staticPost} />
-      </div>
-    </div>
-  )
-}
+    )
+  },
+  {
+    returnTo({ params }) {
+      return `/post/${params?.slug}`
+    },
+  },
+)

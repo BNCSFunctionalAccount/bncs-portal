@@ -32,12 +32,12 @@ export const Sidebar = () => {
           </Link>
         </li>
         <li className="mb-2">
-          <Link
+          <a
             className="mr-5 hover:text-evidenOrange hover:font-bold transition-all ease-in-out duration-150"
             href="/api/auth/logout"
           >
             Logout
-          </Link>
+          </a>
         </li>
       </ul>
     </div>
