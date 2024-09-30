@@ -98,9 +98,11 @@ export default defineType({
               options: {
                 list: [
                   { title: 'BBC', value: 'bbc' },
-                  { title: 'ITV', value: 'itv' },
+                  { title: 'Bloomberg', value: 'bloomberg'},
+                  { title: 'Discovery', value:'discovery'},
+                  { title: 'IMG', value: 'img'},
                   { title: 'Sky', value: 'sky' },
-                  { title: 'Bloomberg', value: 'bloomberg' },
+                 
                 ],
               },
             },
@@ -131,25 +133,7 @@ export default defineType({
       title: 'Commercially Available',
       type: 'boolean',
     }),
-    defineField({
-      name: 'viewers',
-      title: 'Viewers',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
-      options: {
-        list: [
-          { title: 'BBC', value: 'bbc' },
-          { title: 'ITV', value: 'itv' },
-          { title: 'Sky', value: 'sky' },
-          { title: 'Bloomberg', value: 'bloomberg' },
-        ],
-        layout: 'grid',
-      },
-    }),
+    
     defineField({
       name: 'deviceManufacturer',
       title: 'Device',
