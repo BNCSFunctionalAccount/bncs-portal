@@ -53,41 +53,41 @@ async function getStaticProps(params) {
   return post
 }
 
-// export default withPageAuthRequired(
-//   async function ProjectSlugRoute({ params }) {
-//     const staticPost = await getStaticProps(params)
+export default withPageAuthRequired(
+  async function ProjectSlugRoute({ params }) {
+    const staticPost = await getStaticProps(params)
 
-//     return (
-//       <div className="flex h-screen">
-//         <Sidebar navItems={SIDEBAR_NAVITEMS} />
-//         <h1 className="font-bold absolute left-80 top-9">Driver</h1>
-//         <div className="absolute right-6 top-10">
-//           <Image src={logo} alt="Eviden Logo" width={175} height={100} />
-//         </div>
-//         <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
-//           <SlugSection staticPost={staticPost} />
-//         </div>
-//       </div>
-//     )
-//   },
-//   {
-//     returnTo({ params }) {
-//       return `/post/${params?.slug}`
-//     },
-//   },
-// )
+    return (
+      <div className="flex h-screen">
+        <Sidebar navItems={SIDEBAR_NAVITEMS} />
+        <h1 className="font-bold absolute left-80 top-9">Driver</h1>
+        <div className="absolute right-6 top-10">
+          <Image src={logo} alt="Eviden Logo" width={175} height={100} />
+        </div>
+        <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
+          <SlugSection staticPost={staticPost} />
+        </div>
+      </div>
+    )
+  },
+  {
+    returnTo({ params }) {
+      return `/post/${params?.slug}`
+    },
+  },
+)
 
-const Page = async () => {
-  return (
-    <p>Protected route</p>
-  )
-}
+// const Page = async () => {
+//   return (
+//     <p>Protected route</p>
+//   )
+// }
 
-export default withPageAuthRequired(Page, {
-  returnTo({ params }) {
-    return `/protected-page/${params?.slug}`
-  }
-});
+// export default withPageAuthRequired(Page, {
+//   returnTo({ params }) {
+//     return `/protected-page/${params?.slug}`
+//   }
+// });
 
 // export default async function ProjectSlugRoute({ params }) {
 //   const staticPost = await getStaticProps(params)
