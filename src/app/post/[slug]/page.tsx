@@ -3,20 +3,13 @@ import Image from 'next/image'
 
 import { SlugSection } from '~/components/slug-section'
 import { getClient } from '~/lib/sanity.client'
-import { getPost, Post, postSlugsQuery } from '~/lib/sanity.queries'
+import { getPost, Post } from '~/lib/sanity.queries'
 
 import logo from '../../../assets/logo.png'
 import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
 import { Sidebar } from '~/components/sidebar'
 
 export const dynamicParams = true
-
-export async function generateStaticParams() {
-  const client = getClient()
-  const slugs = await client.fetch(postSlugsQuery)
-
-  return slugs?.map(({ slug }) => `/post/${slug}`) || []
-}
 
 async function getStaticProps(params) {
   const client = getClient()
