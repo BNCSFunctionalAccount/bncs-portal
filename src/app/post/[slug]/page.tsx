@@ -8,7 +8,6 @@ import { getPost, Post, postSlugsQuery } from '~/lib/sanity.queries'
 import logo from '../../../assets/logo.png'
 import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
 import { Sidebar } from '~/components/sidebar'
-import { unstable_noStore as noStore } from 'next/cache'
 
 export const dynamicParams = true
 
@@ -56,7 +55,6 @@ async function getStaticProps(params) {
 
 export default withPageAuthRequired(
   async function ProjectSlugRoute({ params }) {
-    noStore()
     const staticPost = await getStaticProps(params)
 
     return (
