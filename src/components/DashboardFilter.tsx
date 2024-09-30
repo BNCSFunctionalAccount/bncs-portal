@@ -15,11 +15,10 @@ export const DashboardFilter = () => {
         selectedOption={filter}
         setOption={setFilter}
         border
-        titleText={'Filter License'}
+        titleText={'Filter Availability'}
         menuItems={[
           { title: 'All' },
-          { title: 'Licensed' },
-          { title: 'Not Licensed', clickEffect: (e) => console.log(e.target) },
+          { title: 'Available', clickEffect: (e) => console.log(e.target) },
         ]}
       />
     </div>
