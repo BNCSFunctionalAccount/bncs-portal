@@ -53,7 +53,13 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
-      rows: 4,
+      rows: 2,
+    }),
+    defineField({
+      name: 'longDescription',
+      title: 'Long Description',
+      type: 'text',
+      rows: 7,
     }),
     defineField({
       name: 'readMe',
@@ -126,6 +132,16 @@ export default defineType({
       name: 'roles',
       title: 'Roles',
       type: 'array',
+      options: {
+        list: [
+          { title: 'BBC', value: 'bbc' },
+          { title: 'Bloomberg', value: 'bloomberg'},
+          { title: 'Discovery', value:'discovery'},
+          { title: 'IMG', value: 'img'},
+          { title: 'Sky', value: 'sky' },
+         
+        ],
+      },
       of: [{ type: 'string' }],
     }),
     defineField({
