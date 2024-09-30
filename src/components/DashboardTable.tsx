@@ -50,8 +50,8 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
     // Filter by the selected license filter
     const matchesLicenseFilter =
       filter === 'All' ||
-      (filter === 'Licensed' && isLicensed) ||
-      (filter === 'Not Licensed' && !isLicensed)
+      (filter === 'Available' && isLicensed) ||
+      (filter === '' && !isLicensed)
 
     // Filter for search query
     const matchesSearch = post.description
