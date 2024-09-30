@@ -77,9 +77,13 @@ async function getStaticProps(params) {
 //   },
 // )
 
-export default withPageAuthRequired(async function ProtectedPage() {
-  return <div>Protected content</div>;
-}, {
+const Page = async () => {
+  return (
+    <p>Protected route</p>
+  )
+}
+
+export default withPageAuthRequired(Page, {
   returnTo({ params }) {
     return `/protected-page/${params?.slug}`
   }
