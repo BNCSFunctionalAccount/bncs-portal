@@ -53,7 +53,13 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'text',
-      rows: 4,
+      rows: 2,
+    }),
+    defineField({
+      name: 'longDescription',
+      title: 'Long Description',
+      type: 'text',
+      rows: 7,
     }),
     defineField({
       name: 'readMe',
@@ -98,9 +104,11 @@ export default defineType({
               options: {
                 list: [
                   { title: 'BBC', value: 'bbc' },
-                  { title: 'ITV', value: 'itv' },
+                  { title: 'Bloomberg', value: 'bloomberg'},
+                  { title: 'Discovery', value:'discovery'},
+                  { title: 'IMG', value: 'img'},
                   { title: 'Sky', value: 'sky' },
-                  { title: 'Bloomberg', value: 'bloomberg' },
+                 
                 ],
               },
             },
@@ -124,6 +132,16 @@ export default defineType({
       name: 'roles',
       title: 'Roles',
       type: 'array',
+      options: {
+        list: [
+          { title: 'BBC', value: 'bbc' },
+          { title: 'Bloomberg', value: 'bloomberg'},
+          { title: 'Discovery', value:'discovery'},
+          { title: 'IMG', value: 'img'},
+          { title: 'Sky', value: 'sky' },
+         
+        ],
+      },
       of: [{ type: 'string' }],
     }),
     defineField({
@@ -131,25 +149,7 @@ export default defineType({
       title: 'Commercially Available',
       type: 'boolean',
     }),
-    defineField({
-      name: 'viewers',
-      title: 'Viewers',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
-      options: {
-        list: [
-          { title: 'BBC', value: 'bbc' },
-          { title: 'ITV', value: 'itv' },
-          { title: 'Sky', value: 'sky' },
-          { title: 'Bloomberg', value: 'bloomberg' },
-        ],
-        layout: 'grid',
-      },
-    }),
+    
     defineField({
       name: 'deviceManufacturer',
       title: 'Device',
