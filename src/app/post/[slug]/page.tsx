@@ -11,12 +11,12 @@ import { Sidebar } from '~/components/sidebar'
 
 export const dynamicParams = true
 
-export async function generateStaticParams() {
-  const client = getClient()
-  const slugs = await client.fetch(postSlugsQuery)
+// export async function generateStaticParams() {
+//   const client = getClient()
+//   const slugs = await client.fetch(postSlugsQuery)
 
-  return slugs?.map(({ slug }) => `/post/${slug}`) || []
-}
+//   return slugs?.map(({ slug }) => `/post/${slug}`) || []
+// }
 
 async function getStaticProps(params) {
   const client = getClient()
