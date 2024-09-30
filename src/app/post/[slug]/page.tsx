@@ -1,4 +1,4 @@
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+// import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 import Image from 'next/image'
 
 import { SlugSection } from '~/components/slug-section'
@@ -53,26 +53,43 @@ async function getStaticProps(params) {
   return post
 }
 
-export default withPageAuthRequired(
-  async function ProjectSlugRoute({ params }) {
-    const staticPost = await getStaticProps(params)
+// export default withPageAuthRequired(
+//   async function ProjectSlugRoute({ params }) {
+//     const staticPost = await getStaticProps(params)
 
-    return (
-      <div className="flex h-screen">
-        <Sidebar navItems={SIDEBAR_NAVITEMS} />
-        <h1 className="font-bold absolute left-80 top-9">Driver</h1>
-        <div className="absolute right-6 top-10">
-          <Image src={logo} alt="Eviden Logo" width={175} height={100} />
-        </div>
-        <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
-          <SlugSection staticPost={staticPost} />
-        </div>
+//     return (
+//       <div className="flex h-screen">
+//         <Sidebar navItems={SIDEBAR_NAVITEMS} />
+//         <h1 className="font-bold absolute left-80 top-9">Driver</h1>
+//         <div className="absolute right-6 top-10">
+//           <Image src={logo} alt="Eviden Logo" width={175} height={100} />
+//         </div>
+//         <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
+//           <SlugSection staticPost={staticPost} />
+//         </div>
+//       </div>
+//     )
+//   },
+//   {
+//     returnTo({ params }) {
+//       return `/post/${params?.slug}`
+//     },
+//   },
+// )
+
+export default async function ProjectSlugRoute({ params }) {
+  const staticPost = await getStaticProps(params)
+
+  return (
+    <div className="flex h-screen">
+      <Sidebar navItems={SIDEBAR_NAVITEMS} />
+      <h1 className="font-bold absolute left-80 top-9">Driver</h1>
+      <div className="absolute right-6 top-10">
+        <Image src={logo} alt="Eviden Logo" width={175} height={100} />
       </div>
-    )
-  },
-  {
-    returnTo({ params }) {
-      return `/post/${params?.slug}`
-    },
-  },
-)
+      <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
+        <SlugSection staticPost={staticPost} />
+      </div>
+    </div>
+  )
+}
