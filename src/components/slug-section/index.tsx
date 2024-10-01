@@ -52,7 +52,7 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         )}
         <div className="h-8 bg-deepBlue w-full" />
       </div>
-      <div className="h-full overflow-y-scroll px-3 border-l-4 border-evidenOrange pl-4 hover:pl-3 hover:border-l-8 transition-all duration-100">
+      <div className="h-fit overflow-y-scroll px-3 border-l-4 border-evidenOrange pl-4 hover:pl-3 hover:border-l-8 transition-all duration-100">
         <div className="bg-lightGray p-2 rounded my-5 hover:bg-opacity-95">
           <p
             className={`${sans.className} font-semibold text-sm text-gray-500`}
