@@ -27,7 +27,7 @@ export const Input: FC<IInputProps> = ({
   height,
   border = false,
   labelAbove = false,
-  icon
+  icon,
 }) => (
   <div className={`${className} ${labelAbove && 'flex flex-col pb-4'}`}>
     {titleText && (
@@ -35,12 +35,8 @@ export const Input: FC<IInputProps> = ({
         {titleText}
       </label>
     )}
-    <div className='flex items-center'>
-      {icon && (
-        <i className='absolute p-2'>
-          {icon}
-        </i>
-      )}
+    <div className="flex items-center">
+      {icon && <i className="absolute p-2">{icon}</i>}
       <input
         width={width}
         height={height}

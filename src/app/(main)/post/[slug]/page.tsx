@@ -51,7 +51,7 @@ export default withPageAuthRequired(
     const staticPost = await getStaticProps(params)
 
     return (
-      <div className='flex flex-col h-full gap-4'>
+      <div className="flex flex-col h-full gap-4">
         <SlugSection staticPost={staticPost} />
       </div>
     )

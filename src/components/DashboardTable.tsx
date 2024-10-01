@@ -73,9 +73,7 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
         { text: post.version ?? '' },
         { text: post.description ?? '' },
         {
-          text: userCanDownload(userRoles, post.roles)
-            ? 'Available'
-            : '',
+          text: userCanDownload(userRoles, post.roles) ? 'Available' : '',
         },
       ],
       id: post.slug.current,

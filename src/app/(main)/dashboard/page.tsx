@@ -10,8 +10,8 @@ export default withPageAuthRequired(
     const staticPosts = await getStaticPosts()
 
     return (
-      <section className='flex flex-col h-full gap-2'>
-        <h1 className='text-4xl'>Dashboard</h1>
+      <section className="flex flex-col h-full gap-2">
+        <h1 className="text-4xl">Dashboard</h1>
         <DashboardProvider>
           <div className="flex gap-4 items-start">
             <DashboardFilter />

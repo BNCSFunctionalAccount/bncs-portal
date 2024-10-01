@@ -25,7 +25,7 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
 
   return (
     <section className="flex flex-col h-full gap-4 w-full">
-      <div className='flex justify-between mr-52'>
+      <div className="flex justify-between mr-52">
         <h1 className={`${sans.className} text-4xl font-extrabold`}>
           {post.title}
         </h1>
