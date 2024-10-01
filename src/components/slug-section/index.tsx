@@ -32,8 +32,8 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         <Link
           className="rounded-lg bg-deepBlue min-w-44 text-center hover:bg-opacity-75 text-white
             py-2 px-4 hover:text-evidenOrange hover:font-bold transition-all ease-in-out duration-150"
-          href={'/dashboard/'}
-          title="Dashboard"
+          href={'/drivers'}
+          title="Drivers"
         >
           Back to Table
         </Link>

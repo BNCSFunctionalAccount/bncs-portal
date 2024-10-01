@@ -2,13 +2,13 @@
 
 import { useContext } from 'react'
 
-import { DashboardContext } from '~/lib/providers/DashboardProvider'
+import { DriversContext } from '~/lib/providers/DriversProvider'
 
 import { Input } from './input'
 import { SearchIcon } from '~/assets/icons/SearchIcon'
 
-export const DashboardSearch = () => {
-  const { setSearchQuery } = useContext(DashboardContext)
+export const DriversSearch = () => {
+  const { setSearchQuery } = useContext(DriversContext)
 
   return (
     <Input
