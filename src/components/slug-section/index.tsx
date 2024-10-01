@@ -1,6 +1,5 @@
 'use client'
 
-import { PortableText } from '@portabletext/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLiveQuery } from 'next-sanity/preview'
@@ -25,20 +24,8 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
   console.log(post)
 
   return (
-    <section className="w-full mt-1 mx-0 mb-4">
-      {post.mainImage ? (
-        <Image
-          src={urlForImage(post.mainImage)?.url() || ''}
-          height={231}
-          width={367}
-          alt=""
-          priority
-        />
-      ) : (
-        <div className="w-full h-[200px] object-cover bg-gray-300" />
-      )}
-      <div className="h-8 bg-deepBlue w-full" />
-      <div className="my-5 mx-0 border-b-2 border-lightGray p-2 flex justify-between">
+    <section className="flex flex-col h-full gap-4 w-full">
+      <div className='flex justify-between mr-52'>
         <h1 className={`${sans.className} text-4xl font-extrabold`}>
           {post.title}
         </h1>
@@ -51,7 +38,21 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
           Back to Table
         </Link>
       </div>
-      <div className="py-0 px-3 border-l-4 border-evidenOrange pl-4 hover:pl-3 hover:border-l-8 transition-all duration-100">
+      <div>
+        {post.mainImage ? (
+          <Image
+            src={urlForImage(post.mainImage)?.url() || ''}
+            height={231}
+            width={367}
+            alt=""
+            priority
+          />
+        ) : (
+          <div className="w-full h-[200px] object-cover bg-gray-300" />
+        )}
+        <div className="h-8 bg-deepBlue w-full" />
+      </div>
+      <div className="h-full overflow-y-scroll px-3 border-l-4 border-evidenOrange pl-4 hover:pl-3 hover:border-l-8 transition-all duration-100">
         <div className="bg-lightGray p-2 rounded my-5 hover:bg-opacity-95">
           <p
             className={`${sans.className} font-semibold text-sm text-gray-500`}
