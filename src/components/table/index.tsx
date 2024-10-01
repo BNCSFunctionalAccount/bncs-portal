@@ -19,7 +19,7 @@ interface ITableProps {
 export const Table: FC<ITableProps> = ({
   headers,
   footers,
-  className,
+  className = '',
   border,
   sticky,
   rows,
@@ -29,7 +29,7 @@ export const Table: FC<ITableProps> = ({
   return (
     <>
       <div
-        className={`mt-5 shadow-md ${border && 'border border-deepBlue border-solid'}`}
+        className={`h-full overflow-y-scroll shadow-md ${border && 'border border-deepBlue border-solid'}`}
       >
         <table
           className={`${className} w-full border-collapse bg-white table-auto`}

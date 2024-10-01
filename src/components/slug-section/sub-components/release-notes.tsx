@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react'
 import { FC } from 'react'
-import { PortableTextBlock } from 'sanity'
 
 import { serif } from '~/assets/fonts'
 import { Post } from '~/lib/sanity.queries'

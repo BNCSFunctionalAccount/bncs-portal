@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useLiveQuery } from 'next-sanity/preview'
 import { FC, MouseEvent, useContext, useEffect } from 'react'
 
-import { DRIVER_HEADERS } from '~/app/dashboard/constants'
+import { DRIVER_HEADERS } from '~/app/(main)/dashboard/constants'
 import { DashboardContext } from '~/lib/providers/DashboardProvider'
 import { Post, postsQuery } from '~/lib/sanity.queries'
 
@@ -73,9 +73,7 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
         { text: post.version ?? '' },
         { text: post.description ?? '' },
         {
-          text: userCanDownload(userRoles, post.roles)
-            ? 'Available'
-            : '',
+          text: userCanDownload(userRoles, post.roles) ? 'Available' : '',
         },
       ],
       id: post.slug.current,
@@ -87,14 +85,12 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
   if (error) return <div>Error: {error.message}</div>
 
   return (
-    <section>
-      <Table
-        onRowClick={handleOnRowClick}
-        border={true}
-        rows={tableRows}
-        headers={DRIVER_HEADERS}
-        sticky={'header'}
-      />
-    </section>
+    <Table
+      onRowClick={handleOnRowClick}
+      border={true}
+      rows={tableRows}
+      headers={DRIVER_HEADERS}
+      sticky={'header'}
+    />
   )
 }

@@ -5,7 +5,7 @@ import { SlugSection } from '~/components/slug-section'
 import { getClient } from '~/lib/sanity.client'
 import { getPost, Post } from '~/lib/sanity.queries'
 
-import logo from '../../../assets/logo.png'
+import logo from '../../../../assets/logo.png'
 import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
 import { Sidebar } from '~/components/sidebar'
 
@@ -51,15 +51,8 @@ export default withPageAuthRequired(
     const staticPost = await getStaticProps(params)
 
     return (
-      <div className="flex h-screen">
-        <Sidebar navItems={SIDEBAR_NAVITEMS} />
-        <h1 className="font-bold absolute left-80 top-9">Driver</h1>
-        <div className="absolute right-6 top-10">
-          <Image src={logo} alt="Eviden Logo" width={175} height={100} />
-        </div>
-        <div className="ml-72 px-5 mt-24 w-[calc(100%-260px)]">
-          <SlugSection staticPost={staticPost} />
-        </div>
+      <div className="flex flex-col h-full gap-4">
+        <SlugSection staticPost={staticPost} />
       </div>
     )
   },

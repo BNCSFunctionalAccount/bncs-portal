@@ -104,11 +104,10 @@ export default defineType({
               options: {
                 list: [
                   { title: 'BBC', value: 'bbc' },
-                  { title: 'Bloomberg', value: 'bloomberg'},
-                  { title: 'Discovery', value:'discovery'},
-                  { title: 'IMG', value: 'img'},
+                  { title: 'Bloomberg', value: 'bloomberg' },
+                  { title: 'Discovery', value: 'discovery' },
+                  { title: 'IMG', value: 'img' },
                   { title: 'Sky', value: 'sky' },
-                 
                 ],
               },
             },
@@ -135,11 +134,10 @@ export default defineType({
       options: {
         list: [
           { title: 'BBC', value: 'bbc' },
-          { title: 'Bloomberg', value: 'bloomberg'},
-          { title: 'Discovery', value:'discovery'},
-          { title: 'IMG', value: 'img'},
+          { title: 'Bloomberg', value: 'bloomberg' },
+          { title: 'Discovery', value: 'discovery' },
+          { title: 'IMG', value: 'img' },
           { title: 'Sky', value: 'sky' },
-         
         ],
       },
       of: [{ type: 'string' }],
@@ -149,7 +147,7 @@ export default defineType({
       title: 'Commercially Available',
       type: 'boolean',
     }),
-    
+
     defineField({
       name: 'deviceManufacturer',
       title: 'Device',
