@@ -17,7 +17,7 @@ const userCanDownload = (
   userRoles: string[],
   driverRoles: string[],
 ): boolean => {
-  return userRoles.some((role) => driverRoles.includes(role))
+  return userRoles.some((role) => driverRoles?.includes(role))
 }
 
 interface IDriversTableProps {
