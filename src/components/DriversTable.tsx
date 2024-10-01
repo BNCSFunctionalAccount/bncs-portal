@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation'
 import { useLiveQuery } from 'next-sanity/preview'
 import { FC, MouseEvent, useContext, useEffect } from 'react'
 
-import { DRIVER_HEADERS } from '~/app/(main)/dashboard/constants'
-import { DashboardContext } from '~/lib/providers/DashboardProvider'
+import { DRIVER_HEADERS } from '~/app/(main)/drivers/constants'
+import { DriversContext } from '~/lib/providers/DriversProvider'
 import { Post, postsQuery } from '~/lib/sanity.queries'
 
 import { Table } from './table'
@@ -20,13 +20,13 @@ const userCanDownload = (
   return userRoles.some((role) => driverRoles.includes(role))
 }
 
-interface IDashboardTableProps {
+interface IDriversTableProps {
   staticPosts: Post[]
 }
 
-export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
+export const DriversTable: FC<IDriversTableProps> = ({ staticPosts }) => {
   const { userRoles, filter, searchQuery, setUserRoles } =
-    useContext(DashboardContext)
+    useContext(DriversContext)
 
   const { user, isLoading, error } = useUser()
   const router = useRouter()
