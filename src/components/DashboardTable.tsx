@@ -87,14 +87,12 @@ export const DashboardTable: FC<IDashboardTableProps> = ({ staticPosts }) => {
   if (error) return <div>Error: {error.message}</div>
 
   return (
-    <section>
-      <Table
-        onRowClick={handleOnRowClick}
-        border={true}
-        rows={tableRows}
-        headers={DRIVER_HEADERS}
-        sticky={'header'}
-      />
-    </section>
+    <Table
+      onRowClick={handleOnRowClick}
+      border={true}
+      rows={tableRows}
+      headers={DRIVER_HEADERS}
+      sticky={'header'}
+    />
   )
 }
