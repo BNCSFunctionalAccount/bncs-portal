@@ -21,7 +21,7 @@ export const Header = async () => {
                 className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
                 href="/drivers"
               >
-                Drivers
+                Dashboard
               </Link>
               <Link
                 className="cursor-pointer hover:underline underline-offset-2 decoration-evidenOrange hover:transition-all hover:ease-in-out hover:duration-500"
