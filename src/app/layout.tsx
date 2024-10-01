@@ -11,7 +11,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <UserProvider>
-        <body className={`${sans.className}`}>{children}</body>
+        <body className={`${sans.className} overflow-hidden`}>{children}</body>
       </UserProvider>
     </html>
   )
