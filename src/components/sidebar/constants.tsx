@@ -6,7 +6,7 @@ import { LogoutIcon } from '~/assets/icons/LogoutIcon'
 
 export const SIDEBAR_NAVITEMS: INavItem[] = [
   { href: '/', text: 'Home', icon: <HomeIcon /> },
-  { href: '/dashboard', text: 'Dashboard', icon: <DashboardIcon /> },
+  { href: '/drivers', text: 'Drivers', icon: <DashboardIcon /> },
   {
     href: 'https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1',
     text: 'Submit a Ticket',
