@@ -3,10 +3,12 @@ import { INavItem } from './types'
 import { HomeIcon } from '~/assets/icons/HomeIcon'
 import { TicketIcon } from '~/assets/icons/TicketIcon'
 import { LogoutIcon } from '~/assets/icons/LogoutIcon'
+import { CoresIcon } from '~/assets/icons/CoresIcon'
 
 export const SIDEBAR_NAVITEMS: INavItem[] = [
   { href: '/', text: 'Home', icon: <HomeIcon /> },
   { href: '/dashboard', text: 'Dashboard', icon: <DashboardIcon /> },
+  { href: '/cores', text: 'Cores', icon: <CoresIcon /> },
   {
     href: 'https://bncs.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1',
     text: 'Submit a Ticket',
