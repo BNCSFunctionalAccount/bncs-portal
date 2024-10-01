@@ -2,7 +2,7 @@
 
 import React, { createContext, Dispatch, FC, useState } from 'react'
 
-interface DashboardContextType {
+interface DriversContextType {
   userRoles: string[]
   setUserRoles: Dispatch<React.SetStateAction<string[]>>
   filter: string
@@ -11,20 +11,20 @@ interface DashboardContextType {
   setSearchQuery: Dispatch<React.SetStateAction<string>>
 }
 
-export const DashboardContext = createContext<DashboardContextType>({
+export const DriversContext = createContext<DriversContextType>({
   userRoles: [],
-  setUserRoles: () => {},
+  setUserRoles: () => { },
   filter: 'All',
-  setFilter: () => {},
+  setFilter: () => { },
   searchQuery: '',
-  setSearchQuery: () => {},
+  setSearchQuery: () => { },
 })
 
-interface IDashboardProviderProps {
+interface IDriversProviderProps {
   children: React.ReactNode
 }
 
-export const DashboardProvider: FC<IDashboardProviderProps> = ({
+export const DriversProvider: FC<IDriversProviderProps> = ({
   children,
 }) => {
   const [userRoles, setUserRoles] = useState<string[]>([])
@@ -32,7 +32,7 @@ export const DashboardProvider: FC<IDashboardProviderProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('')
 
   return (
-    <DashboardContext.Provider
+    <DriversContext.Provider
       value={{
         userRoles,
         setUserRoles,
@@ -43,6 +43,6 @@ export const DashboardProvider: FC<IDashboardProviderProps> = ({
       }}
     >
       {children}
-    </DashboardContext.Provider>
+    </DriversContext.Provider>
   )
 }

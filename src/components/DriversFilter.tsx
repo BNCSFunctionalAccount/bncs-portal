@@ -1,13 +1,11 @@
 'use client'
 
 import { useContext } from 'react'
-
-import { DashboardContext } from '~/lib/providers/DashboardProvider'
-
+import { DriversContext } from '~/lib/providers/DriversProvider'
 import { Select } from './select'
 
-export const DashboardFilter = () => {
-  const { filter, setFilter } = useContext(DashboardContext)
+export const DriversFilter = () => {
+  const { filter, setFilter } = useContext(DriversContext)
 
   return (
     <Select
