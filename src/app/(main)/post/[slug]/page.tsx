@@ -1,13 +1,8 @@
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-import Image from 'next/image'
 
 import { SlugSection } from '~/components/slug-section'
 import { getClient } from '~/lib/sanity.client'
 import { getPost, Post } from '~/lib/sanity.queries'
-
-import logo from '../../../../assets/logo.png'
-import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
-import { Sidebar } from '~/components/sidebar'
 
 export const dynamicParams = true
 
