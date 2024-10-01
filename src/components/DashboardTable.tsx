@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useLiveQuery } from 'next-sanity/preview'
 import { FC, MouseEvent, useContext, useEffect } from 'react'
 
-import { DRIVER_HEADERS } from '~/app/dashboard/constants'
+import { DRIVER_HEADERS } from '~/app/(main)/dashboard/constants'
 import { DashboardContext } from '~/lib/providers/DashboardProvider'
 import { Post, postsQuery } from '~/lib/sanity.queries'
 
