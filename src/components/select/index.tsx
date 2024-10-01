@@ -34,14 +34,12 @@ export const Select: FC<ISelectProps> = ({
       {titleText && <label htmlFor={id}>{titleText}</label>}
       <div className={`relative`} style={{ width: width, height: height }}>
         <div
-          className={`${border ? 'border-darkGray' : 'border-lightGray'} flex bg-lightGray items-center p-1 
-                    justify-centr font-medium hover:bg-opacity-100 
+          className={`${border ? 'border-darkGray' : 'border-lightGray'} flex bg-lightGray items-center p-1 font-medium hover:bg-opacity-100 
                     bg-opacity-75 transition-colors after:absolute after:inline-block after:right-3 pl-2
-                    ${
-                      isOpen
-                        ? 'rounded-t border-t border-x after:-rotate-90'
-                        : 'rounded border after:rotate-90 hover:cursor-pointer'
-                    } after:transition-all after:content-['>']`}
+                    ${isOpen
+              ? 'rounded-t border-t border-x after:-rotate-90'
+              : 'rounded border after:rotate-90 hover:cursor-pointer'
+            } after:transition-all after:content-['>']`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {selectedOption}
