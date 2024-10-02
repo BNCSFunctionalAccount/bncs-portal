@@ -1,12 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useLiveQuery } from 'next-sanity/preview'
 import { FC } from 'react'
 
 import { sans, serif } from '~/assets/fonts'
-import { urlForImage } from '~/lib/sanity.image'
 import { Post, postBySlugQuery } from '~/lib/sanity.queries'
 import { formatDate, formatDateUK } from '~/utils'
 
