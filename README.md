@@ -1,19 +1,7 @@
-# A minimal Next.js site with Sanity Studio
+# BNCS Portal
 
-This starter is a statically generated site that uses [Next.js][nextjs] for the frontend and [Sanity][sanity-homepage] to handle its content.
-It comes with a native Sanity Studio that offers features like real-time collaboration, instant side-by-side content previews, and intuitive editing.
+Eviden’s Broadcast Network Control System (BNCS) is a proven solution enabling streamlined control and monitoring of broadcast equipment within a broadcast environment. It provides a centralized interface to control and gain access to purchased Drivers, Cores and Automatics; which are used to communicate between the individual hardware’s APIs and the BNCS.  
 
-The Studio connects to Sanity Content Lake, which gives you hosted content APIs with a flexible query language, on-demand image transformations, powerful patching, and more.
-You can use this starter to kick-start a clean slate site or learn these technologies.
-
-[![Deploy with Vercel](https://vercel.com/button)][vercel-deploy]
-
-> **Note**
->
-> This starter uses the `/pages` directory for Next.js routing.
->
-> The template will be migrated to the currently experimental [/app][app-dir] directory
-> when Vercel announce that it is production ready.
 
 ## Table of Contents
 
@@ -34,9 +22,6 @@ You can use this starter to kick-start a clean slate site or learn these technol
 
 ## Project Overview
 
-| [Example Studio with preview](https://template-nextjs-clean.sanity.build/studio)                                        |
-| ----------------------------------------------------------------------------------------------------------------------- |
-| ![Sanity Studio](https://user-images.githubusercontent.com/44635000/197511725-b2a2e2e5-287b-41a9-84c6-ec90d37ca480.png) |
 
 # Important files and folders
 
