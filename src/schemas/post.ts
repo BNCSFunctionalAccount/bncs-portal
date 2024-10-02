@@ -72,14 +72,6 @@ export default defineType({
       type: 'number',
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
       name: 'releaseNotes',
       title: 'Release Notes',
       type: 'text',
