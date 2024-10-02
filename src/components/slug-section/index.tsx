@@ -36,9 +36,6 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
           Back to Table
         </Link>
       </div>
-      <div>
-        <div className="h-8 bg-deepBlue w-full" />
-      </div>
       <div className="h-fit overflow-y-scroll px-3 border-l-4 border-evidenOrange pl-4 hover:pl-3 hover:border-l-8 transition-all duration-100">
         <div className="bg-lightGray p-2 rounded my-5 hover:bg-opacity-95">
           <p
@@ -46,8 +43,8 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
           >
             {formatDate(post._createdAt)}
           </p>
-          <p className={`${serif.className} text-2xl mt-0 min-h-24 py-1`}>
-            {post.description}
+          <p className={`${serif.className} text-xl mt-0 min-h-24 py-1`}>
+            {post.longDescription}
           </p>
         </div>
         <div className="flex justify-between">
