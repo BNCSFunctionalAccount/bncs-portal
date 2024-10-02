@@ -13,6 +13,7 @@ const config: Config = {
         lightGray: '#ececed',
         darkGray: '#222428',
         evidenBlue: '#002d3c',
+
       },
     },
   },
