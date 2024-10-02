@@ -29,7 +29,7 @@ export const Table: FC<ITableProps> = ({
   return (
     <>
       <div
-        className={`h-full overflow-y-scroll shadow-md ${border && 'border border-deepBlue border-solid'}`}
+        className={`h-fit overflow-y-scroll shadow-md ${border && 'border border-deepBlue border-solid'}`}
       >
         <table
           className={`${className} w-full border-collapse bg-white table-auto`}
