@@ -90,11 +90,11 @@ export default defineType({
               type: 'string',
               options: {
                 list: [
-                  { title: 'BBC', value: 'bbc' },
-                  { title: 'Bloomberg', value: 'bloomberg' },
-                  { title: 'Discovery', value: 'discovery' },
-                  { title: 'IMG', value: 'img' },
-                  { title: 'Sky', value: 'sky' },
+                  { title: 'BBC', value: 'BBC' },
+                  { title: 'Bloomberg', value: 'Bloomberg' },
+                  { title: 'Discovery', value: 'Discovery' },
+                  { title: 'IMG', value: 'IMG' },
+                  { title: 'Sky', value: 'Sky' },
                 ],
               },
             },
@@ -120,11 +120,11 @@ export default defineType({
       type: 'array',
       options: {
         list: [
-          { title: 'BBC', value: 'bbc' },
-          { title: 'Bloomberg', value: 'bloomberg' },
-          { title: 'Discovery', value: 'discovery' },
-          { title: 'IMG', value: 'img' },
-          { title: 'Sky', value: 'sky' },
+          { title: 'BBC', value: 'BBC' },
+          { title: 'Bloomberg', value: 'Bloomberg' },
+          { title: 'Discovery', value: 'Discovery' },
+          { title: 'IMG', value: 'IMG' },
+          { title: 'Sky', value: 'Sky' },
         ],
       },
       of: [{ type: 'string' }],
