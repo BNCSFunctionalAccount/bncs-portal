@@ -67,11 +67,6 @@ export default defineType({
       type: 'boolean',
     }),
     defineField({
-      name: 'size',
-      title: 'Size',
-      type: 'number',
-    }),
-    defineField({
       name: 'releaseNotes',
       title: 'Release Notes',
       type: 'text',
