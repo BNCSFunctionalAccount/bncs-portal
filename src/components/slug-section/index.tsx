@@ -29,9 +29,10 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         <h1 className={`${sans.className} text-4xl font-extrabold`}>
           {post.title}
         </h1>
+        
         <Link
           className="rounded-lg bg-deepBlue min-w-44 text-center hover:bg-opacity-75 text-white
-            py-2 px-4 hover:text-evidenOrange hover:font-bold transition-all ease-in-out duration-150"
+            py-2 px-4 hover:text-evidenOrange hover:font-bold transition-all ease-in-out duration-150 flex items-center justify-center  h-11"
           href={'/drivers'}
           title="Drivers"
         >
@@ -63,7 +64,12 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         <div className="min-h-24 w-full">
           <ReleaseNotes post={post} />
         </div>
+        
       </div>
+      <button className="bg-gray-500 text-gray-300 border-none px-5 py-2.5 cursor-not-allowed rounded-lg h-11 w-44">
+        Download
+      </button>
+
     </section>
   )
 }
