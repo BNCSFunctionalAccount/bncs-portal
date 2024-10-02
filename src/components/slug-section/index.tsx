@@ -48,7 +48,7 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
           </div>
         </div>
 
-        <hr className="border-t-2 border-evidenBlue my-4" />
+        <hr className="border-t-2 border-deepBlue my-4" />
 
         <div className="min-h-24 w-full">
           <h2>Version History</h2>
