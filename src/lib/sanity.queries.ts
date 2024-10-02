@@ -36,6 +36,7 @@ export interface Post {
   version?: string
   lastSupportedBNCS?: string
   description?: string
+  longDescription?: string
   readMe?: boolean
   size?: number
   mainImage?: ImageAsset

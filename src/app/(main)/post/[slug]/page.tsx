@@ -24,6 +24,7 @@ async function getStaticProps(params) {
       version: '',
       lastSupportedBNCS: '',
       description: '',
+      longDescription: '',
       readMe: false,
       size: 0,
       releaseNotes: [],
