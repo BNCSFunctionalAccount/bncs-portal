@@ -12,7 +12,6 @@ const config: Config = {
         deepBlue: '#002d4c',
         lightGray: '#ececed',
         darkGray: '#222428',
-
       },
     },
   },
