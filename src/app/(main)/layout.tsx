@@ -1,7 +1,9 @@
-import { Sidebar } from '~/components/sidebar'
-import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants'
-import Image from 'next/image'
-import logo from '../../assets/logo.png'
+import Image from 'next/image';
+
+import { Sidebar } from '~/components/sidebar';
+import { SIDEBAR_NAVITEMS } from '~/components/sidebar/constants';
+
+import logo from '../../assets/logo.png';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -16,7 +18,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

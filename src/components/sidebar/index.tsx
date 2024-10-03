@@ -1,8 +1,8 @@
-import { NavItem } from './navItem'
-import { INavItem } from './types'
+import { NavItem } from './navItem';
+import { INavItem } from './types';
 
 interface ISidebarProps {
-  navItems: INavItem[]
+  navItems: INavItem[];
 }
 
 export const Sidebar = ({ navItems }: ISidebarProps) => {
@@ -24,5 +24,5 @@ export const Sidebar = ({ navItems }: ISidebarProps) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};

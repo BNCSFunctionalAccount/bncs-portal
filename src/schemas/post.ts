@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'post',
@@ -19,7 +19,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96,
@@ -37,7 +37,7 @@ export default defineType({
           { title: 'Automatic', value: 'automatic' },
         ],
       },
-      validation: (Rule) => Rule.required(),
+      validation: Rule => Rule.required(),
     },
     defineField({
       name: 'version',
@@ -153,8 +153,8 @@ export default defineType({
       author: 'author.name',
     },
     prepare(selection) {
-      const { author } = selection
-      return { ...selection, subtitle: author && `by ${author}` }
+      const { author } = selection;
+      return { ...selection, subtitle: author && `by ${author}` };
     },
   },
-})
+});
