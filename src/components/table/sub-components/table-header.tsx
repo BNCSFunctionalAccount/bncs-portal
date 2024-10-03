@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { IHeader } from '../types'
+import { IHeader } from '../types';
 
 interface ITableHeaderProps {
-  headers: IHeader[]
-  sticky?: boolean
+  headers: IHeader[];
+  sticky?: boolean;
 }
 
 export const TableHeader: FC<ITableHeaderProps> = ({ headers, sticky }) => {
@@ -13,7 +13,7 @@ export const TableHeader: FC<ITableHeaderProps> = ({ headers, sticky }) => {
       className={`bg-deepBlue text-white font-bold text-left ${sticky && 'sticky top-0'}`}
     >
       <tr>
-        {headers.map((header) => (
+        {headers.map(header => (
           <th
             key={header.title}
             style={{ width: header.width ?? '200px' }}
@@ -24,5 +24,5 @@ export const TableHeader: FC<ITableHeaderProps> = ({ headers, sticky }) => {
         ))}
       </tr>
     </thead>
-  )
-}
+  );
+};

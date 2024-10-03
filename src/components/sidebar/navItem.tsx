@@ -1,10 +1,10 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 interface INavItemProps {
-  href: string
-  children: React.ReactNode
-  isAnchor?: boolean
-  icon: JSX.Element
+  href: string;
+  children: React.ReactNode;
+  isAnchor?: boolean;
+  icon: JSX.Element;
 }
 
 export const NavItem = ({ href, children, isAnchor, icon }: INavItemProps) => {
@@ -26,5 +26,5 @@ export const NavItem = ({ href, children, isAnchor, icon }: INavItemProps) => {
         </div>
       )}
     </li>
-  )
-}
+  );
+};

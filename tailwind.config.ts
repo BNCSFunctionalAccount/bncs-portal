@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -12,10 +12,9 @@ const config: Config = {
         deepBlue: '#002d4c',
         lightGray: '#ececed',
         darkGray: '#222428',
-
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

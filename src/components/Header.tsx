@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import logo from '../assets/logo.png'
-import { getSession } from '@auth0/nextjs-auth0'
+import { getSession } from '@auth0/nextjs-auth0';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import logo from '../assets/logo.png';
 
 export const Header = async () => {
-  const session = await getSession()
+  const session = await getSession();
 
   return (
     <header className="flex bg-deepBlue px-5 py-3 justify-between items-center fixed w-full top-0 z-50 text-white">
@@ -49,5 +50,5 @@ export const Header = async () => {
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};

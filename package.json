@@ -3,23 +3,16 @@
   "scripts": {
     "build": "next build",
     "dev": "next",
-    "format": "npx prettier --write . --ignore-path .gitignore",
-    "lint": "next lint -- --ignore-path .gitignore",
-    "lint:fix": "npm run format && npm run lint -- --fix",
+    "lint": "npx eslint .",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
-  },
+  "type": "module",
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.5.0",
     "@portabletext/react": "3.0.11",
     "@sanity/client": "^6.12.3",
-    "@sanity/demo": "1.0.2",
     "@sanity/vision": "3.28.0",
-    "@tailwindcss/typography": "0.5.10",
     "next": "^14.2.4",
     "next-sanity": "5.5.11",
     "react": "18.2.0",
@@ -30,17 +23,21 @@
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.11.1",
     "@types/react": "18.2.55",
-    "autoprefixer": "10.4.17",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-simple-import-sort": "10.0.0",
-    "postcss": "8.4.35",
+    "globals": "^15.10.0",
     "prettier": "3.2.5",
-    "prettier-plugin-packagejson": "2.4.10",
-    "prettier-plugin-tailwindcss": "0.5.11",
     "tailwindcss": "3.4.1",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "typescript-eslint": "^8.8.0"
   },
   "engines": {
     "node": ">=16"

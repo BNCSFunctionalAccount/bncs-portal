@@ -1,9 +1,10 @@
-import { INavItem } from './types'
-import { HomeIcon } from '~/assets/icons/HomeIcon'
-import { TicketIcon } from '~/assets/icons/TicketIcon'
-import { LogoutIcon } from '~/assets/icons/LogoutIcon'
-import { DriverIcon } from '~/assets/icons/DriverIcon'
-import { CoresIcon } from '~/assets/icons/CoresIcon'
+import { CoresIcon } from '~/assets/icons/CoresIcon';
+import { DriverIcon } from '~/assets/icons/DriverIcon';
+import { HomeIcon } from '~/assets/icons/HomeIcon';
+import { LogoutIcon } from '~/assets/icons/LogoutIcon';
+import { TicketIcon } from '~/assets/icons/TicketIcon';
+
+import { INavItem } from './types';
 
 export const SIDEBAR_NAVITEMS: INavItem[] = [
   { href: '/', text: 'Home', icon: <HomeIcon /> },
@@ -20,4 +21,4 @@ export const SIDEBAR_NAVITEMS: INavItem[] = [
     icon: <LogoutIcon />,
     isAnchor: true,
   },
-]
+];
