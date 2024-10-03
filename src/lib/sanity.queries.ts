@@ -1,5 +1,5 @@
 import type { PortableTextBlock } from '@portabletext/types'
-import type { ImageAsset, Slug } from '@sanity/types'
+import type { Slug } from '@sanity/types'
 import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
 import { Url } from 'next/dist/shared/lib/router/router'
@@ -20,10 +20,6 @@ export async function getPost(
     slug,
   })
 }
-
-export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
-`
 
 export interface Post {
   _type: 'post'
