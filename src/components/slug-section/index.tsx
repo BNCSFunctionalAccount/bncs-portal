@@ -19,8 +19,6 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
     slug: staticPost.slug.current,
   })
 
-  console.log(post)
-
   return (
     <section className="flex h-full w-full gap-8">
       <div className="flex-1 flex flex-col gap-4">
