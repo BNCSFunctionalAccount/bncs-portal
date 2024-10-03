@@ -36,15 +36,13 @@ export interface Post {
   version?: string
   lastSupportedBNCS?: string
   description?: string
+  longDescription?: string
   readMe?: boolean
-  size?: number
-  mainImage?: ImageAsset
   releaseNotes: PortableTextBlock[]
   releaseDate: PortableTextBlock[]
   organisationWithLicense: Array<object>
   roles: Array<string>
   commerciallyAvailable: boolean
-  viewers: Array<string>
   deviceManufacturer: Array<string>
   url: Url
 }

@@ -7,11 +7,22 @@ const client = sanityClient({
 })
 
 export async function fetchData() {
-  const query = `*[_type == 'drivers'] {
+  const query = `*[_type == 'posts'] {
     _id,
     title,
+    binaryName,
+    type,
     version,
-    size,
+    lastSupportedBNCSVersion,
+    description, 
+    longDescription,
+    readMe,
+    releaseNotes,
+    releaseDate,
+    organisationWithLicenses,
+    roles,
+    commerciallyAvailable,
+    deviceManufacturer,
     _createdAt,
     url,
     roles
