@@ -6,7 +6,7 @@ on:
       - main
 
   pull_request:
-    branches: 
+    branches:
       - main
 
 jobs:
@@ -26,5 +26,5 @@ jobs:
       - name: Install Dependencies
         run: npm install --immutable --immutable-cache --check-cache
 
-      - name: Lint team-manager
+      - name: Lint
         run: npm run lint
