@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { useLiveQuery } from 'next-sanity/preview'
-import { FC } from 'react'
+import { FC } from 'react';
+import Link from 'next/link';
+import { useLiveQuery } from 'next-sanity/preview';
 
-import { sans, serif } from '~/assets/fonts'
-import { Post, postBySlugQuery } from '~/lib/sanity.queries'
-import { formatDateUK } from '~/utils'
+import { sans, serif } from '~/assets/fonts';
+import { Post, postBySlugQuery } from '~/lib/sanity.queries';
+import { formatDateUK } from '~/utils';
 
-import { ReleaseNotes } from './sub-components/release-notes'
+import { ReleaseNotes } from './sub-components/release-notes';
 
 interface ISlugSectionProps {
-  staticPost: Post
+  staticPost: Post;
 }
 
 export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
   const [post] = useLiveQuery(staticPost, postBySlugQuery, {
     slug: staticPost.slug.current,
-  })
+  });
 
   return (
     <section className="flex h-full w-full gap-8">
@@ -69,5 +69,5 @@ export const SlugSection: FC<ISlugSectionProps> = ({ staticPost }) => {
         </Link>
       </div>
     </section>
-  )
-}
+  );
+};

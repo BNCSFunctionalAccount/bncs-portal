@@ -1,18 +1,18 @@
-import { ChangeEvent, FC, FocusEvent, HTMLInputTypeAttribute } from 'react'
+import { ChangeEvent, FC, FocusEvent, HTMLInputTypeAttribute } from 'react';
 
 interface IInputProps {
-  titleText?: string
-  className?: string
-  type?: HTMLInputTypeAttribute
-  id: string
-  placeholder?: string
-  onInputChange?: (e: ChangeEvent<HTMLInputElement>) => unknown
-  onInputBlur?: (e: FocusEvent<HTMLInputElement>) => unknown
-  width?: string
-  height?: string
-  border?: boolean
-  labelAbove?: boolean
-  icon?: JSX.Element
+  titleText?: string;
+  className?: string;
+  type?: HTMLInputTypeAttribute;
+  id: string;
+  placeholder?: string;
+  onInputChange?: (e: ChangeEvent<HTMLInputElement>) => unknown;
+  onInputBlur?: (e: FocusEvent<HTMLInputElement>) => unknown;
+  width?: string;
+  height?: string;
+  border?: boolean;
+  labelAbove?: boolean;
+  icon?: JSX.Element;
 }
 
 export const Input: FC<IInputProps> = ({
@@ -49,4 +49,4 @@ export const Input: FC<IInputProps> = ({
       />
     </div>
   </div>
-)
+);

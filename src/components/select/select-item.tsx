@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import { FC, Fragment, SetStateAction } from 'react'
+import { FC, Fragment, SetStateAction } from 'react';
+import Link from 'next/link';
 
-import { IMenuItem } from './types'
+import { IMenuItem } from './types';
 
 interface ISelectItemProps {
-  item: IMenuItem
-  key: string
-  setOption?: (newVal: string) => void
-  setIsOpen: (value: SetStateAction<boolean>) => void
-  selected: boolean
+  item: IMenuItem;
+  key: string;
+  setOption?: (newVal: string) => void;
+  setIsOpen: (value: SetStateAction<boolean>) => void;
+  selected: boolean;
 }
 
 export const SelectItem: FC<ISelectItemProps> = ({
@@ -30,15 +30,15 @@ export const SelectItem: FC<ISelectItemProps> = ({
       ) : (
         <li
           className={`p-2 ${selected ? 'bg-slate-400 border-slate-400' : 'bg-lightGray hover:bg-slate-400 hover:border-slate-400'} hover:cursor-pointer transition-all border-b last:rounded-b`}
-          onClick={(e) => {
-            item.clickEffect && item.clickEffect(e)
-            setIsOpen(false)
-            setOption && setOption(item.title ?? '')
+          onClick={e => {
+            item.clickEffect && item.clickEffect(e);
+            setIsOpen(false);
+            setOption && setOption(item.title ?? '');
           }}
         >
           {item.title}
         </li>
       )}
     </Fragment>
-  )
-}
+  );
+};

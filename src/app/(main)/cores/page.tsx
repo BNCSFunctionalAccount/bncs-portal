@@ -1,6 +1,6 @@
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
-import { Cores } from '~/components/cores'
+import { Cores } from '~/components/cores';
 
 export default withPageAuthRequired(
   async function CoresPage() {
@@ -9,7 +9,7 @@ export default withPageAuthRequired(
         <h1 className="text-4xl">Cores</h1>
         <Cores />
       </section>
-    )
+    );
   },
-  { returnTo: '/cores' },
-)
+  { returnTo: '/cores' }
+);

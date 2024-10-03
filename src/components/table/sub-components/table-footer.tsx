@@ -1,17 +1,17 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { IHeader } from '../types'
+import { IHeader } from '../types';
 
 interface ITableFooterProps {
-  footers: IHeader[]
-  sticky?: boolean
+  footers: IHeader[];
+  sticky?: boolean;
 }
 
 export const TableFooter: FC<ITableFooterProps> = ({ sticky, footers }) => {
   return (
     <tfoot className={`${sticky && 'sticky bottom-0'}`}>
       <tr>
-        {footers.map((footer) => (
+        {footers.map(footer => (
           <th
             key={footer.title}
             style={{ width: footer.width ?? '200px' }}
@@ -22,5 +22,5 @@ export const TableFooter: FC<ITableFooterProps> = ({ sticky, footers }) => {
         ))}
       </tr>
     </tfoot>
-  )
-}
+  );
+};
