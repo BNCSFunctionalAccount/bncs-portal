@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import { DriversContext } from '~/lib/providers/DriversProvider'
+import { SearchIcon } from '~/assets/icons/SearchIcon';
+import { DriversContext } from '~/lib/providers/DriversProvider';
 
-import { Input } from './input'
-import { SearchIcon } from '~/assets/icons/SearchIcon'
+import { Input } from './input';
 
 export const DriversSearch = () => {
-  const { setSearchQuery } = useContext(DriversContext)
+  const { setSearchQuery } = useContext(DriversContext);
 
   return (
     <Input
@@ -18,7 +18,7 @@ export const DriversSearch = () => {
       id="search"
       border
       placeholder="Search descriptions..."
-      onInputChange={(e) => setSearchQuery(e.target.value)}
+      onInputChange={e => setSearchQuery(e.target.value)}
     />
-  )
-}
+  );
+};

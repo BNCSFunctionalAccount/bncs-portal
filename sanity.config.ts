@@ -2,15 +2,15 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
-import { visionTool } from '@sanity/vision'
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { visionTool } from '@sanity/vision';
+import { defineConfig } from 'sanity';
+import { deskTool } from 'sanity/desk';
 import {
   defineUrlResolver,
   Iframe,
   IframeOptions,
-} from 'sanity-plugin-iframe-pane'
-import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url'
+} from 'sanity-plugin-iframe-pane';
+import { previewUrl } from 'sanity-plugin-iframe-pane/preview-url';
 
 // see https://www.sanity.io/docs/api-versioning for how versioning works
 import {
@@ -18,8 +18,8 @@ import {
   dataset,
   previewSecretId,
   projectId,
-} from '~/lib/sanity.api'
-import { schema } from '~/schemas'
+} from '~/lib/sanity.api';
+import { schema } from '~/schemas';
 
 const iframeOptions = {
   url: defineUrlResolver({
@@ -28,7 +28,7 @@ const iframeOptions = {
   }),
   urlSecretId: previewSecretId,
   reload: { button: true },
-} satisfies IframeOptions
+} satisfies IframeOptions;
 
 export default defineConfig({
   basePath: '/studio',
@@ -51,7 +51,7 @@ export default defineConfig({
           S.view.form(),
           // Preview
           S.view.component(Iframe).options(iframeOptions).title('Preview'),
-        ])
+        ]);
       },
     }),
     // Add the "Open preview" action
@@ -64,4 +64,4 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
   ],
-})
+});

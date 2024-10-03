@@ -1,19 +1,19 @@
-import { FC, MouseEvent, ReactElement } from 'react'
+import { FC, MouseEvent, ReactElement } from 'react';
 
-import { TableBody } from './sub-components/table-body'
-import { TableFooter } from './sub-components/table-footer'
-import { TableHeader } from './sub-components/table-header'
-import { IHeader, IRow } from './types'
+import { TableBody } from './sub-components/table-body';
+import { TableFooter } from './sub-components/table-footer';
+import { TableHeader } from './sub-components/table-header';
+import { IHeader, IRow } from './types';
 
 interface ITableProps {
-  headers: IHeader[]
-  footers?: IHeader[]
-  className?: string
-  border?: boolean
-  sticky?: 'header' | 'footer' | 'both'
-  rows: IRow<string | ReactElement>[]
-  showCounter?: boolean
-  onRowClick?: (e: MouseEvent<HTMLTableRowElement>, rowId: string) => unknown
+  headers: IHeader[];
+  footers?: IHeader[];
+  className?: string;
+  border?: boolean;
+  sticky?: 'header' | 'footer' | 'both';
+  rows: IRow<string | ReactElement>[];
+  showCounter?: boolean;
+  onRowClick?: (e: MouseEvent<HTMLTableRowElement>, rowId: string) => unknown;
 }
 
 export const Table: FC<ITableProps> = ({
@@ -58,5 +58,5 @@ export const Table: FC<ITableProps> = ({
         //TODO: Pagination selector
       )}
     </>
-  )
-}
+  );
+};

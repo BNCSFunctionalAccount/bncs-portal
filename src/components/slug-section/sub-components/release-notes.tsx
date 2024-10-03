@@ -1,11 +1,11 @@
-import { PortableText } from '@portabletext/react'
-import { FC } from 'react'
+import { FC } from 'react';
+import { PortableText } from '@portabletext/react';
 
-import { serif } from '~/assets/fonts'
-import { Post } from '~/lib/sanity.queries'
+import { serif } from '~/assets/fonts';
+import { Post } from '~/lib/sanity.queries';
 
 interface IReleaseNotesProps {
-  post: Post
+  post: Post;
 }
 
 export const ReleaseNotes: FC<IReleaseNotesProps> = ({
@@ -24,4 +24,4 @@ export const ReleaseNotes: FC<IReleaseNotesProps> = ({
       )}
     </div>
   </div>
-)
+);
