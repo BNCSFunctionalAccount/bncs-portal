@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+// // export const withPreconstruct = require('@preconstruct/next');
+// /** @type {import('@preconstruct/next')}  */
+
 const config = {
   images: { remotePatterns: [{ hostname: 'cdn.sanity.io' }] },
   env: {
@@ -8,6 +11,10 @@ const config = {
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
   },
-}
+};
 
-export default config
+export default config;
+
+const withPreconstruct = require('@preconstruct/next');
+
+module.exports = withPreconstruct();

@@ -1,16 +1,25 @@
-import { config } from '@keystone-6/core'
+import { config } from '@keystone-6/core';
+// import { lists } from 'schema';
+import { list } from '@keystone-6/core';
+import { allowAll } from '@keystone-6/core/access';
+import { text } from '@keystone-6/core/fields';
+
+import { lists } from './keystone/schema';
+
+// import { TypeInfo } from '.keystone/types';
 
 export default config({
   db: {
     provider: 'postgresql',
-    url: 'postgres://dbuser:dbpass@localhost:5432/keystone',
-    onConnect: async (context) => {
-      /* ... */
+    url: 'postgres://postgres:password@localhost:5432/postgres',
+    onConnect: async context => {
+      console.log('Connected - yay!');
     },
-    // Optional advanced configuration
+
     enableLogging: true,
-    idField: { kind: 'uuid' },
-    shadowDatabaseUrl: 'postgres://dbuser:dbpass@localhost:5432/shadowdb',
   },
-  /* ... */
-})
+  ui: {
+    basePath: '/admin',
+  },
+  lists: lists,
+});
