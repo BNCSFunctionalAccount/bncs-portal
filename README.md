@@ -7,6 +7,8 @@ Eviden’s Broadcast Network Control System (BNCS) is a proven solution enabling
 - [Table of Contents](#table-of-contents)
 - [Project Overview](#project-overview)
   - [Log in](#log-in)
+  - [Home page](#home-page)
+  - [Dashboard](#dashboard)
 - [Configuration](#configuration)
 
 ## Project Overview
@@ -14,6 +16,11 @@ The BNCS portal is currently can be accessed by the [BNCS](https://www.bncs.medi
 
 ### Log in
 In order to be able to access the BNCS portal, the user will need to log in using their login credentials. The login authentication and authorisation is handled by [Auth0](https://auth0.com/docs/get-started/auth0-overview) 
+
+### Home page
+When logged in, the user will land on the BNCS homepage. The user can be redirected to either the Dashboard page through the Dashboard tab, the Jira page through the Submit A Ticket page or log out using the Log out tab.
+
+### Dashboard
 
 ## Configuration
 
