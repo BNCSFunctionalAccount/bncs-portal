@@ -9,6 +9,7 @@ Eviden’s Broadcast Network Control System (BNCS) is a proven solution enabling
   - [Log in](#log-in)
   - [Home page](#home-page)
   - [Dashboard](#dashboard)
+  - [Submit A Ticket](#submit-a-ticket)
 - [Configuration](#configuration)
 
 ## Project Overview
@@ -21,6 +22,10 @@ In order to be able to access the BNCS portal, the user will need to log in usin
 When logged in, the user will land on the BNCS homepage. The user can be redirected to either the Dashboard page through the Dashboard tab, the Jira page through the Submit A Ticket page or log out using the Log out tab.
 
 ### Dashboard
+Here, the user can view the drivers or cores that are assigned to their profile by clicking on the Drivers or Cores tabs respectively.
+
+### Submit A Ticket
+Users will be required to log in to access the Jira page. Here, users can request access for specific drivers/cores. 
 
 ## Configuration
 
