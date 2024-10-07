@@ -4,42 +4,16 @@ Eviden’s Broadcast Network Control System (BNCS) is a proven solution enabling
 
 
 ## Table of Contents
-
-- [Features](#features)
 - [Table of Contents](#table-of-contents)
 - [Project Overview](#project-overview)
-  - [Important files and folders](#important-files-and-folders)
+  - [Log in](#log-in)
 - [Configuration](#configuration)
-  - [Step 1. Set up the environment](#step-1-set-up-the-environment)
-  - [Step 2. Set up the project locally](#step-2-set-up-the-project-locally)
-  - [Step 3. Run Next.js locally in development mode](#step-3-run-nextjs-locally-in-development-mode)
-  - [Step 4. Deploy to production](#step-4-deploy-to-production)
-- [Questions and Answers](#questions-and-answers)
-  - [It doesn't work! Where can I get help?](#it-doesnt-work-where-can-i-get-help)
-  - [How can I remove the "Next steps" block from my app?](#how-can-i-remove-the-next-steps-block-from-my-app)
-  - [How can I set up Incremental Static Revalidation?](#how-can-i-set-up-incremental-static-revalidation)
-- [Next steps](#next-steps)
 
 ## Project Overview
+The BNCS portal is currently can be accessed by the [BNCS](https://www.bncs.media/) website. In this POC stage, a test user is created in order to view the drivers that are associated with this profile.
 
-
-# Important files and folders
-
-| File(s)                          | Description                                                                           |
-| -------------------------------- | ------------------------------------------------------------------------------------- |
-| `sanity.config.ts`               | Config file for Sanity Studio                                                         |
-| `sanity.cli.ts`                  | Config file for Sanity CLI                                                            |
-| `/pages/index.tsx`               | Landing page for `/`.                                                                 |
-| `/pages/studio/[[...index]].tsx` | Where Sanity Studio is mounted                                                        |
-| `/pages/api/draft.ts`            | Serverless route for triggering Draft mode                                            |
-| `/sanity/schemas.ts`             | Where Sanity Studio gets its content types from                                       |
-| `/sanity/env.ts`                 | Configuration for the Sanity project and dataset                                      |
-| `/sanity/schemas.ts`             | Where Sanity Studio gets its content types from                                       |
-| `/sanity/lib/client.ts`          | Sanity client configured based on `env.ts`                                            |
-| `/sanity/lib/image.ts`           | Sanity image builder - unused in this template, but is needed to render Sanity images |
-| `tailwind.config.js`             | Tailwind config. Only applies to files listed under `content`                         |
-
-All pages are wrapped in `pages/_document.tsx` and `pages/_app.tsx`.
+### Log in
+In order to be able to access the BNCS portal, the user will need to log in using their login credentials. The login authentication and authorisation is handled by [Auth0](https://auth0.com/docs/get-started/auth0-overview) 
 
 ## Configuration
 
