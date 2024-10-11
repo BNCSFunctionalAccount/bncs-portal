@@ -1,4 +1,13 @@
+'use client'
+
+import { useUser } from '@auth0/nextjs-auth0/client'
+import { useContext, useEffect } from 'react'
+import { DriversContext } from '~/lib/providers/DriversProvider'
+
+
 import Link from 'next/link'
+
+
 
 interface INavItemProps {
   href: string
@@ -10,9 +19,22 @@ interface INavItemProps {
 
 export const NavItem = ({ href, children, isAnchor, icon, isUserGuide }: INavItemProps) => {
 
-  const userRole = "BBC"
+  const { userRoles, filter, searchQuery, setUserRoles } =
+    useContext(DriversContext)
+
+  const { user, isLoading, error } = useUser()
+  
+
+  useEffect(() => {
+    if (user && user['https://localhost:3000/roles']) {
+      const roles = user['https://localhost:3000/roles'] as string[]
+      setUserRoles(roles)
+    }
+  }, [user, setUserRoles])
 
   
+
+
   return (
     <li className="mb-2">
       {isAnchor ? (
@@ -23,7 +45,7 @@ export const NavItem = ({ href, children, isAnchor, icon, isUserGuide }: INavIte
           </a>
         </div>
       ) : isUserGuide ? ( 
-        userRole == "BBC" ? (
+        userRoles.includes("BBC") ? (
             <div className="flex hover:text-evidenOrange items-center gap-4 hover:font-bold transition-all ease-in-out duration-150">
             {icon}
             <Link href={href} className="mr-5">
