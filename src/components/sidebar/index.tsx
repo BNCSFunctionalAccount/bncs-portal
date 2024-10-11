@@ -18,6 +18,7 @@ export const Sidebar = ({ navItems }: ISidebarProps) => {
             key={index}
             icon={item.icon}
             isAnchor={item.isAnchor}
+            isUserGuide={item.isUserGuide}
           >
             {item.text}
           </NavItem>

@@ -3,4 +3,5 @@ export interface INavItem {
   text: string
   icon: JSX.Element
   isAnchor?: boolean
+  isUserGuide?: boolean
 }
