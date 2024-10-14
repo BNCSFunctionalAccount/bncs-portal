@@ -71,6 +71,8 @@ export const DriversTable: FC<IDriversTableProps> = ({ staticPosts }) => {
       cells: [
         { text: post.title ?? '', id: post._id },
         { text: post.version ?? '' },
+        { text: Array.isArray(post.deviceManufacturer) ? post.deviceManufacturer.join(', ') : post.deviceManufacturer ?? '' },
+
         { text: post.description ?? '' },
         {
           text: userCanDownload(userRoles, post.roles) ? 'Available' : '',
